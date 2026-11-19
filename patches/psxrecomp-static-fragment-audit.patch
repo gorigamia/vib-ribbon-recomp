@@ -1,0 +1,18 @@
+diff --git a/tools/compile_overlays.py b/tools/compile_overlays.py
+index 82b2ed9..e094a3c 100644
+--- a/tools/compile_overlays.py
++++ b/tools/compile_overlays.py
+@@ -4932,6 +4932,13 @@ def generate_interior_fragment_static(interior: int, data: bytes,
+                           f'unknown_bad, '
+                           f'{len(audit["unsupported_todo_addrs"])} unsupported')
+         func_ids = parse_overlay_func_ids(ranges_src, data, load_addr, size)
++        delay_errors = audit_func_id_delay_slots(func_ids, data, load_addr)
++        if delay_errors:
++            # Apply the same original-byte control-flow audit as DLL shards.
++            # Generated C alone can hide data words consumed by discovery.
++            # Never publish a static fragment that the final cache audit
++            # would reject; it remains eligible for interpreter fallback.
++            return None, 'generated-c-audit: ' + str(delay_errors[0])
+         ids_by_addr = {}
+         for ev, code_crc, ranges in func_ids:
+             ids_by_addr.setdefault(ev, []).append((code_crc, ranges))

@@ -1,0 +1,56 @@
+# Dados locais / ROM do usuário — nunca versionar
+.cortexkit/
+.local/
+disc/
+saves/
+*.cue
+*.iso
+*.chd
+*.bin
+!bios/openbios.bin
+overlay_captures.json
+overlay_captures.json.d/
+psx_freeze_dump_*.json
+psx_freeze_heartbeat.json
+
+# Checkouts do framework mantidos localmente
+tools/psxrecomp-src/
+tools/psxrecomp/
+tools/open-ribbon-src/
+tools/open-ribbon-docs/
+
+# Artefatos de configure/build
+build/
+build-*/
+CMakeFiles/
+_deps/
+cache/
+generated/
+overlay_toolchain/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.a
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+*.pdb
+*.exp
+*.rc
+*.log
+psx_bios_registry.c
+psx-runtime_generated_sources.txt
+psxrecomp_exe_name-*.txt
+psxrecomp_overlay_flavor-*.txt
+psx_game_version.txt
+psx_mod_catalog_*.txt
+
+# Saídas derivadas e mods empacotados localmente
+mods/bundled/
+psx_execution/psx-runtime/*.c
+
+# Python
+__pycache__/
+*.py[cod]

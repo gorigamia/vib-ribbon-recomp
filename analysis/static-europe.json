@@ -1,0 +1,2136 @@
+{
+  "method": "static analysis, no game execution",
+  "dependencies": {
+    "psxrecomp-src": "a7b37e079e8c6e98e04cd1cd42ba559e95911ea7",
+    "open-ribbon-src": "127a22722cc90b0bb5462f784f0f6956545cfda2",
+    "open-ribbon-docs": "0b756ea8046acf6ed2e35b69451c1d6c6c38f4b0"
+  },
+  "modules": [
+    {
+      "path": "MAIN_G.EXE",
+      "sha256": "7fe8f295c39c9a96c6511925819b5a9abbc7489a5dee2d3514c6bf27c4953947",
+      "entry_point": "0x8005405c",
+      "load_address": "0x80019000",
+      "payload_size": 382976,
+      "sha1": "34171ee9394d33203fad0222a068fe337659c17a",
+      "analyzer_stats": {
+        "total_functions": 1355,
+        "total_instructions": 75499,
+        "bytes_covered": 301996,
+        "bytes_image": 382976,
+        "verified": 396,
+        "high": 323,
+        "medium": 413,
+        "low": 221,
+        "data": 2,
+        "reachable": 745,
+        "orphans": 610,
+        "named": 0,
+        "direct_edges": 4109,
+        "jump_tables_resolved": 22,
+        "jump_table_targets": 583,
+        "indirect_unresolved": 278,
+        "partial_functions": 0,
+        "undecoded_words": 0
+      },
+      "gte_function_candidates": 16,
+      "anchors": [
+        {
+          "text": "C:/psj/dev/locale/game/FbStream.cpp",
+          "address": "0x80019078",
+          "function_candidates": [
+            "0x800219ec",
+            "0x80021e4c"
+          ],
+          "reference_sites": [
+            "0x80021ae8",
+            "0x80021e80"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/VideoSys.cpp",
+          "address": "0x800190e8",
+          "function_candidates": [
+            "0x800221d0",
+            "0x800227a0",
+            "0x80022f3c"
+          ],
+          "reference_sites": [
+            "0x80022594",
+            "0x80022d70",
+            "0x80022e60",
+            "0x80022f84"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/CdSys.cpp",
+          "address": "0x80019164",
+          "function_candidates": [
+            "0x80023d3c",
+            "0x80023d98",
+            "0x80023df4",
+            "0x80023e50",
+            "0x80023eac",
+            "0x80023f08",
+            "0x80023f64",
+            "0x80023fc0",
+            "0x8002401c",
+            "0x80024078",
+            "0x800240d4",
+            "0x80024130"
+          ],
+          "reference_sites": [
+            "0x80023d68",
+            "0x80023dc4",
+            "0x80023e20",
+            "0x80023e7c",
+            "0x80023ed8",
+            "0x80023f34",
+            "0x80023f90",
+            "0x80023fec",
+            "0x80024048",
+            "0x800240a4",
+            "0x80024100",
+            "0x8002415c"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/AudioSys.cpp",
+          "address": "0x800191fc",
+          "function_candidates": [
+            "0x80024224",
+            "0x80024954",
+            "0x80024b64",
+            "0x80024c74",
+            "0x80024d00"
+          ],
+          "reference_sites": [
+            "0x80024270",
+            "0x80024988",
+            "0x80024b98",
+            "0x80024c9c",
+            "0x80024d6c",
+            "0x80024d94"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/Thread.cpp",
+          "address": "0x80019284",
+          "function_candidates": [
+            "0x80025194",
+            "0x80025368",
+            "0x80025428"
+          ],
+          "reference_sites": [
+            "0x80025274",
+            "0x800253c4",
+            "0x800254f4"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/InputSys.cpp",
+          "address": "0x80019338",
+          "function_candidates": [
+            "0x80025b78",
+            "0x80025bcc"
+          ],
+          "reference_sites": [
+            "0x80025b94",
+            "0x80025bf0"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/MemorySys.cpp",
+          "address": "0x80019394",
+          "function_candidates": [
+            "0x80026c80",
+            "0x80026f0c"
+          ],
+          "reference_sites": [
+            "0x80026cac",
+            "0x80026f9c"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/FileSys.cpp",
+          "address": "0x80019598",
+          "function_candidates": [],
+          "reference_sites": []
+        },
+        {
+          "text": "C:/psj/dev/locale/game/AudioStream.cpp",
+          "address": "0x80019714",
+          "function_candidates": [
+            "0x8002952c",
+            "0x8002999c",
+            "0x800299fc",
+            "0x80029b3c",
+            "0x80029ccc",
+            "0x80029d0c"
+          ],
+          "reference_sites": [
+            "0x80029614",
+            "0x800299d4",
+            "0x80029a20",
+            "0x80029b54",
+            "0x80029ce4",
+            "0x80029d24"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/SignalModule.cpp",
+          "address": "0x800197a4",
+          "function_candidates": [
+            "0x8002a51c",
+            "0x8002a984"
+          ],
+          "reference_sites": [
+            "0x8002a558",
+            "0x8002a9d8"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/InputControl.cpp",
+          "address": "0x800199e4",
+          "function_candidates": [
+            "0x8002c0d8",
+            "0x8002c1f8"
+          ],
+          "reference_sites": [
+            "0x8002c1d4",
+            "0x8002c308"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/FastAllocator.cpp",
+          "address": "0x80019c74",
+          "function_candidates": [
+            "0x800300dc",
+            "0x80030290"
+          ],
+          "reference_sites": [
+            "0x80030210",
+            "0x800302b8",
+            "0x800302ec",
+            "0x80030364"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/Forms.cpp",
+          "address": "0x80019d84",
+          "function_candidates": [
+            "0x80030c90",
+            "0x80030cb8",
+            "0x80030ce0",
+            "0x80030d08",
+            "0x80030d30",
+            "0x80030d60",
+            "0x80030d88",
+            "0x80030db0",
+            "0x80030dd8",
+            "0x80030e38",
+            "0x80030e6c",
+            "0x80032068",
+            "0x80032350",
+            "0x800325e0",
+            "0x800329e0",
+            "0x80032d0c",
+            "0x800331f0",
+            "0x80033574",
+            "0x80033798",
+            "0x80033b20",
+            "0x80033c08",
+            "0x80033c90",
+            "0x80033d18",
+            "0x80033d98",
+            "0x80033e18",
+            "0x80033e94",
+            "0x80033f54",
+            "0x8003400c",
+            "0x80034434",
+            "0x800347c0",
+            "0x8003484c",
+            "0x80034914",
+            "0x80034c60",
+            "0x80034c94",
+            "0x80034cf4",
+            "0x80034d80",
+            "0x80035034",
+            "0x80035080"
+          ],
+          "reference_sites": [
+            "0x80030ca4",
+            "0x80030ccc",
+            "0x80030cf4",
+            "0x80030d1c",
+            "0x80030d44",
+            "0x80030d74",
+            "0x80030d9c",
+            "0x80030dc4",
+            "0x80030dec",
+            "0x80030e58",
+            "0x80030e8c",
+            "0x8003209c",
+            "0x800323f8",
+            "0x800324f0",
+            "0x80032640",
+            "0x80032694",
+            "0x80032780",
+            "0x800328d8",
+            "0x80032a40",
+            "0x80032a94",
+            "0x80032cd0",
+            "0x80032d6c",
+            "0x80032dbc",
+            "0x80032e40",
+            "0x8003347c",
+            "0x800336ac",
+            "0x80033a54",
+            "0x80033b58",
+            "0x80033b94",
+            "0x80033bc4",
+            "0x80033c30",
+            "0x80033c64",
+            "0x80033cb8",
+            "0x80033ce8",
+            "0x80033d3c",
+            "0x80033d74",
+            "0x80033dbc",
+            "0x80033df4",
+            "0x80033e40",
+            "0x80033e70",
+            "0x80033ebc",
+            "0x80033f30",
+            "0x80033f90",
+            "0x80034048",
+            "0x80034470",
+            "0x800347fc",
+            "0x80034888",
+            "0x8003496c",
+            "0x80034c80",
+            "0x80034cb4",
+            "0x80034d30",
+            "0x80034dbc",
+            "0x8003505c",
+            "0x800350a0"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/TitleDraw.cpp",
+          "address": "0x8001ceb8",
+          "function_candidates": [
+            "0x8003d954",
+            "0x8003e510"
+          ],
+          "reference_sites": [
+            "0x8003dc9c",
+            "0x8003e6e8"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/AnalysisScript.cpp",
+          "address": "0x8001d54c",
+          "function_candidates": [
+            "0x80042a54",
+            "0x80042d48"
+          ],
+          "reference_sites": [
+            "0x80042b2c",
+            "0x80042d0c",
+            "0x80042e54"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/Gameplay.cpp",
+          "address": "0x8001d6c8",
+          "function_candidates": [
+            "0x80044198",
+            "0x8004bc70"
+          ],
+          "reference_sites": [
+            "0x8004435c",
+            "0x8004bc94"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/SceneDraw.cpp",
+          "address": "0x8001dc10",
+          "function_candidates": [
+            "0x8004ca5c"
+          ],
+          "reference_sites": [
+            "0x8004cdfc",
+            "0x8004ce84"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/RoadSelect.cpp",
+          "address": "0x8001dd40",
+          "function_candidates": [
+            "0x8004e7bc"
+          ],
+          "reference_sites": [
+            "0x8004e8a0"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/Glue.cpp",
+          "address": "0x8001de44",
+          "function_candidates": [
+            "0x8004ecc4",
+            "0x8004ed1c",
+            "0x8004ee38",
+            "0x8004efe4",
+            "0x8004f6a0",
+            "0x8004f750"
+          ],
+          "reference_sites": [
+            "0x8004ecdc",
+            "0x8004ed38",
+            "0x8004ee64",
+            "0x8004f048",
+            "0x8004f720",
+            "0x8004f770"
+          ]
+        },
+        {
+          "text": "BufferTrackEnd(): bad state",
+          "address": "0x8001de64",
+          "function_candidates": [
+            "0x8004fd8c"
+          ],
+          "reference_sites": [
+            "0x8004fe18"
+          ]
+        },
+        {
+          "text": "SignalGameOver(): bad state",
+          "address": "0x8001de84",
+          "function_candidates": [
+            "0x800500e8"
+          ],
+          "reference_sites": [
+            "0x80050198"
+          ]
+        },
+        {
+          "text": "SignalGameClear(): bad state %d",
+          "address": "0x8001dec8",
+          "function_candidates": [],
+          "reference_sites": []
+        },
+        {
+          "text": "C:/psj/dev/locale/game/TmdLineObj.cpp",
+          "address": "0x8001dff8",
+          "function_candidates": [
+            "0x80050538"
+          ],
+          "reference_sites": [
+            "0x80050744"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/PackedFiles.cpp",
+          "address": "0x8001e0f0",
+          "function_candidates": [],
+          "reference_sites": []
+        },
+        {
+          "text": "C:/psj/dev/locale/game/GameCamera.cpp",
+          "address": "0x8001e16c",
+          "function_candidates": [
+            "0x800527d8"
+          ],
+          "reference_sites": [
+            "0x800528dc"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/Message.cpp",
+          "address": "0x8001e34c",
+          "function_candidates": [
+            "0x800537c4"
+          ],
+          "reference_sites": [
+            "0x800539d4"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/FontHack.cpp",
+          "address": "0x8001e398",
+          "function_candidates": [
+            "0x80053c34",
+            "0x80053d04"
+          ],
+          "reference_sites": [
+            "0x80053c6c",
+            "0x80053cc0",
+            "0x80053d3c"
+          ]
+        }
+      ],
+      "hardware_pointer_literals": [
+        {
+          "address": "0x8006f268",
+          "value": "0x1f801070",
+          "referenced_by": [
+            "0x80054c94",
+            "0x80054d6c",
+            "0x80055084"
+          ]
+        },
+        {
+          "address": "0x8006f26c",
+          "value": "0x1f801074",
+          "referenced_by": [
+            "0x80054c7c",
+            "0x80054c94",
+            "0x80054d6c",
+            "0x80054f3c",
+            "0x80055084",
+            "0x80055124"
+          ]
+        },
+        {
+          "address": "0x8006f270",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x80054c94",
+            "0x80055084",
+            "0x80055124"
+          ]
+        },
+        {
+          "address": "0x8006f3d8",
+          "value": "0x1f801810",
+          "referenced_by": [
+            "0x80056e90",
+            "0x800570cc",
+            "0x80057384",
+            "0x8005740c",
+            "0x80057d74"
+          ]
+        },
+        {
+          "address": "0x8006f3dc",
+          "value": "0x1f801814",
+          "referenced_by": [
+            "0x80056b68",
+            "0x80056c60",
+            "0x80056e90",
+            "0x800570cc",
+            "0x8005734c",
+            "0x80057384",
+            "0x800573c4",
+            "0x8005740c",
+            "0x80057460",
+            "0x80057710",
+            "0x80057970",
+            "0x80057ac0",
+            "0x80057c30",
+            "0x80057d74"
+          ]
+        },
+        {
+          "address": "0x8006f3e0",
+          "value": "0x1f8010a0",
+          "referenced_by": [
+            "0x80056e90",
+            "0x800570cc",
+            "0x800573c4",
+            "0x80057c30"
+          ]
+        },
+        {
+          "address": "0x8006f3e4",
+          "value": "0x1f8010a4",
+          "referenced_by": [
+            "0x80056e90",
+            "0x800570cc",
+            "0x800573c4"
+          ]
+        },
+        {
+          "address": "0x8006f3e8",
+          "value": "0x1f8010a8",
+          "referenced_by": [
+            "0x80056e90",
+            "0x800570cc",
+            "0x800573c4",
+            "0x80057460",
+            "0x80057710",
+            "0x80057970",
+            "0x80057ac0",
+            "0x80057c30"
+          ]
+        },
+        {
+          "address": "0x8006f3ec",
+          "value": "0x1f8010e0",
+          "referenced_by": [
+            "0x80056b80"
+          ]
+        },
+        {
+          "address": "0x8006f3f0",
+          "value": "0x1f8010e4",
+          "referenced_by": [
+            "0x80056b80"
+          ]
+        },
+        {
+          "address": "0x8006f3f4",
+          "value": "0x1f8010e8",
+          "referenced_by": [
+            "0x80056b80"
+          ]
+        },
+        {
+          "address": "0x8006f3f8",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x80056b80",
+            "0x80057970",
+            "0x80057c30"
+          ]
+        },
+        {
+          "address": "0x8006ffdc",
+          "value": "0x1f801814",
+          "referenced_by": [
+            "0x800593e8",
+            "0x80065630"
+          ]
+        },
+        {
+          "address": "0x8006ffe0",
+          "value": "0x1f801110",
+          "referenced_by": [
+            "0x800593e8"
+          ]
+        },
+        {
+          "address": "0x800701a4",
+          "value": "0x1f801040",
+          "referenced_by": [
+            "0x8005c484"
+          ]
+        },
+        {
+          "address": "0x80070248",
+          "value": "0x1f801114",
+          "referenced_by": [
+            "0x80060b2c"
+          ]
+        },
+        {
+          "address": "0x800702e4",
+          "value": "0x1f801c00",
+          "referenced_by": [
+            "0x80054294",
+            "0x800542c4",
+            "0x80054998",
+            "0x8005a84c",
+            "0x8005ab5c",
+            "0x8005b0f8",
+            "0x8005b428",
+            "0x8005b958",
+            "0x8005bc74",
+            "0x800621b0",
+            "0x80062430",
+            "0x800625f0",
+            "0x800626bc",
+            "0x80062a14",
+            "0x80062a58",
+            "0x80062afc",
+            "0x80062c48"
+          ]
+        },
+        {
+          "address": "0x800702e8",
+          "value": "0x1f8010c0",
+          "referenced_by": [
+            "0x800626bc"
+          ]
+        },
+        {
+          "address": "0x800702ec",
+          "value": "0x1f8010c4",
+          "referenced_by": [
+            "0x800626bc"
+          ]
+        },
+        {
+          "address": "0x800702f0",
+          "value": "0x1f8010c8",
+          "referenced_by": [
+            "0x800626bc"
+          ]
+        },
+        {
+          "address": "0x800702f4",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x800621b0",
+            "0x80062b38"
+          ]
+        },
+        {
+          "address": "0x800702f8",
+          "value": "0x1f801014",
+          "referenced_by": [
+            "0x80062b90",
+            "0x80062bb8"
+          ]
+        },
+        {
+          "address": "0x800709f4",
+          "value": "0x1f8010f4",
+          "referenced_by": [
+            "0x80063a74",
+            "0x80063ac0",
+            "0x80063c40"
+          ]
+        },
+        {
+          "address": "0x80070a18",
+          "value": "0x1f801080",
+          "referenced_by": [
+            "0x80063ac0"
+          ]
+        },
+        {
+          "address": "0x80070e70",
+          "value": "0x1f801800",
+          "referenced_by": [
+            "0x80065854",
+            "0x80065db8",
+            "0x80066038",
+            "0x80066300",
+            "0x8006670c",
+            "0x800667e0",
+            "0x800668d0",
+            "0x80066ab0",
+            "0x80066bb0",
+            "0x80066ca8"
+          ]
+        },
+        {
+          "address": "0x80070e74",
+          "value": "0x1f801801",
+          "referenced_by": [
+            "0x80065854",
+            "0x80066300",
+            "0x800667e0"
+          ]
+        },
+        {
+          "address": "0x80070e78",
+          "value": "0x1f801802",
+          "referenced_by": [
+            "0x80065854",
+            "0x80066300",
+            "0x8006670c",
+            "0x800667e0",
+            "0x800668d0"
+          ]
+        },
+        {
+          "address": "0x80070e7c",
+          "value": "0x1f801803",
+          "referenced_by": [
+            "0x80065854",
+            "0x8006670c",
+            "0x800667e0",
+            "0x800668d0",
+            "0x80066ab0",
+            "0x80066bb0"
+          ]
+        },
+        {
+          "address": "0x80070e80",
+          "value": "0x1f801020",
+          "referenced_by": [
+            "0x8006670c",
+            "0x800668d0",
+            "0x80066ab0",
+            "0x80066bb0"
+          ]
+        },
+        {
+          "address": "0x80070e84",
+          "value": "0x1f801c00",
+          "referenced_by": [
+            "0x800667e0"
+          ]
+        },
+        {
+          "address": "0x80070ea4",
+          "value": "0x1f801018",
+          "referenced_by": [
+            "0x80066ab0",
+            "0x80066bb0"
+          ]
+        },
+        {
+          "address": "0x80070ea8",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x80066ab0",
+            "0x80066bb0"
+          ]
+        },
+        {
+          "address": "0x80070eac",
+          "value": "0x1f8010b0",
+          "referenced_by": [
+            "0x80066ab0",
+            "0x80066bb0"
+          ]
+        },
+        {
+          "address": "0x80070eb0",
+          "value": "0x1f8010b4",
+          "referenced_by": [
+            "0x80066ab0",
+            "0x80066bb0"
+          ]
+        },
+        {
+          "address": "0x80070eb4",
+          "value": "0x1f8010b8",
+          "referenced_by": [
+            "0x80066ab0",
+            "0x80066bb0"
+          ]
+        },
+        {
+          "address": "0x8007105c",
+          "value": "0x1f801070",
+          "referenced_by": [
+            "0x800671e4",
+            "0x800673dc",
+            "0x800674ec",
+            "0x80067910",
+            "0x80067b20",
+            "0x80067d98"
+          ]
+        },
+        {
+          "address": "0x80071060",
+          "value": "0x1f801040",
+          "referenced_by": [
+            "0x8006724c",
+            "0x800674ec",
+            "0x80067910",
+            "0x80067b20",
+            "0x80067d98",
+            "0x80067e28"
+          ]
+        },
+        {
+          "address": "0x80075c78",
+          "value": "0x1f801040",
+          "referenced_by": [
+            "0x8006b33c"
+          ]
+        }
+      ],
+      "startup_gp_pair": {
+        "pc": "0x800540e8",
+        "value": "0x80075e24"
+      }
+    },
+    {
+      "path": "MAIN_K.EXE",
+      "sha256": "5605755acec7353ea5bc1f39f8a8d845ebb55b2e38f9b3acd083574819bf9970",
+      "entry_point": "0x800294b4",
+      "load_address": "0x80019000",
+      "payload_size": 182272,
+      "sha1": "c793dba7261eb86d4ad821bbd009d9ade6eed314",
+      "analyzer_stats": {
+        "total_functions": 635,
+        "total_instructions": 32273,
+        "bytes_covered": 129092,
+        "bytes_image": 182272,
+        "verified": 276,
+        "high": 236,
+        "medium": 67,
+        "low": 52,
+        "data": 4,
+        "reachable": 522,
+        "orphans": 113,
+        "named": 0,
+        "direct_edges": 1392,
+        "jump_tables_resolved": 12,
+        "jump_table_targets": 325,
+        "indirect_unresolved": 122,
+        "partial_functions": 0,
+        "undecoded_words": 0
+      },
+      "gte_function_candidates": 16,
+      "anchors": [
+        {
+          "text": "C:/psj/dev/locale/game/VideoSys.cpp",
+          "address": "0x80019028",
+          "function_candidates": [
+            "0x8001d404",
+            "0x8001d9d4",
+            "0x8001e164"
+          ],
+          "reference_sites": [
+            "0x8001d7c8",
+            "0x8001dfa4",
+            "0x8001e094",
+            "0x8001e1ac"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/CdSys.cpp",
+          "address": "0x800190a4",
+          "function_candidates": [
+            "0x8001ef2c",
+            "0x8001ef88",
+            "0x8001efe4"
+          ],
+          "reference_sites": [
+            "0x8001ef58",
+            "0x8001efb4",
+            "0x8001f010"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/AudioSys.cpp",
+          "address": "0x8001913c",
+          "function_candidates": [
+            "0x8001f0d8",
+            "0x8001f174",
+            "0x8001f8c4",
+            "0x8001fad4",
+            "0x8001fbe4",
+            "0x8001fc70"
+          ],
+          "reference_sites": [
+            "0x8001f124",
+            "0x8001f1c0",
+            "0x8001f8f8",
+            "0x8001fb08",
+            "0x8001fc0c",
+            "0x8001fcdc",
+            "0x8001fd04"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/InputSys.cpp",
+          "address": "0x80019210",
+          "function_candidates": [
+            "0x8002072c",
+            "0x80020780"
+          ],
+          "reference_sites": [
+            "0x80020748",
+            "0x800207a4"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/MemorySys.cpp",
+          "address": "0x8001926c",
+          "function_candidates": [
+            "0x80021754",
+            "0x800219e0"
+          ],
+          "reference_sites": [
+            "0x80021780",
+            "0x80021a70"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/FileSys.cpp",
+          "address": "0x80019470",
+          "function_candidates": [],
+          "reference_sites": []
+        },
+        {
+          "text": "C:/psj/dev/locale/game/PackedFiles.cpp",
+          "address": "0x800194e0",
+          "function_candidates": [],
+          "reference_sites": []
+        },
+        {
+          "text": "C:/psj/dev/locale/game/InputControl.cpp",
+          "address": "0x8001969c",
+          "function_candidates": [
+            "0x80024304",
+            "0x80024424"
+          ],
+          "reference_sites": [
+            "0x80024400",
+            "0x80024534"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/TmdLineObj.cpp",
+          "address": "0x8001970c",
+          "function_candidates": [
+            "0x80024780"
+          ],
+          "reference_sites": [
+            "0x8002498c"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/Message.cpp",
+          "address": "0x8001a00c",
+          "function_candidates": [
+            "0x80028e08"
+          ],
+          "reference_sites": [
+            "0x80029018"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/FontHack.cpp",
+          "address": "0x8001a058",
+          "function_candidates": [
+            "0x80029278",
+            "0x80029348"
+          ],
+          "reference_sites": [
+            "0x800292b0",
+            "0x80029304",
+            "0x80029380"
+          ]
+        }
+      ],
+      "hardware_pointer_literals": [
+        {
+          "address": "0x8003eedc",
+          "value": "0x1f801070",
+          "referenced_by": [
+            "0x80029718",
+            "0x800297f0",
+            "0x80029b08"
+          ]
+        },
+        {
+          "address": "0x8003eee0",
+          "value": "0x1f801074",
+          "referenced_by": [
+            "0x80029700",
+            "0x80029718",
+            "0x800297f0",
+            "0x800299c0",
+            "0x80029b08",
+            "0x80029ba8"
+          ]
+        },
+        {
+          "address": "0x8003eee4",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x80029718",
+            "0x80029b08",
+            "0x80029ba8"
+          ]
+        },
+        {
+          "address": "0x8003f04c",
+          "value": "0x1f801810",
+          "referenced_by": [
+            "0x8002b914",
+            "0x8002bb50",
+            "0x8002be08",
+            "0x8002be90",
+            "0x8002c7f8"
+          ]
+        },
+        {
+          "address": "0x8003f050",
+          "value": "0x1f801814",
+          "referenced_by": [
+            "0x8002b5ec",
+            "0x8002b6e4",
+            "0x8002b914",
+            "0x8002bb50",
+            "0x8002bdd0",
+            "0x8002be08",
+            "0x8002be48",
+            "0x8002be90",
+            "0x8002bee4",
+            "0x8002c194",
+            "0x8002c3f4",
+            "0x8002c544",
+            "0x8002c6b4",
+            "0x8002c7f8"
+          ]
+        },
+        {
+          "address": "0x8003f054",
+          "value": "0x1f8010a0",
+          "referenced_by": [
+            "0x8002b914",
+            "0x8002bb50",
+            "0x8002be48",
+            "0x8002c6b4"
+          ]
+        },
+        {
+          "address": "0x8003f058",
+          "value": "0x1f8010a4",
+          "referenced_by": [
+            "0x8002b914",
+            "0x8002bb50",
+            "0x8002be48"
+          ]
+        },
+        {
+          "address": "0x8003f05c",
+          "value": "0x1f8010a8",
+          "referenced_by": [
+            "0x8002b914",
+            "0x8002bb50",
+            "0x8002be48",
+            "0x8002bee4",
+            "0x8002c194",
+            "0x8002c3f4",
+            "0x8002c544",
+            "0x8002c6b4"
+          ]
+        },
+        {
+          "address": "0x8003f060",
+          "value": "0x1f8010e0",
+          "referenced_by": [
+            "0x8002b604"
+          ]
+        },
+        {
+          "address": "0x8003f064",
+          "value": "0x1f8010e4",
+          "referenced_by": [
+            "0x8002b604"
+          ]
+        },
+        {
+          "address": "0x8003f068",
+          "value": "0x1f8010e8",
+          "referenced_by": [
+            "0x8002b604"
+          ]
+        },
+        {
+          "address": "0x8003f06c",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x8002b604",
+            "0x8002c3f4",
+            "0x8002c6b4"
+          ]
+        },
+        {
+          "address": "0x8003fc50",
+          "value": "0x1f801814",
+          "referenced_by": [
+            "0x8002df20"
+          ]
+        },
+        {
+          "address": "0x8003fc54",
+          "value": "0x1f801110",
+          "referenced_by": [
+            "0x8002df20"
+          ]
+        },
+        {
+          "address": "0x8003fe18",
+          "value": "0x1f801040",
+          "referenced_by": [
+            "0x80031094"
+          ]
+        },
+        {
+          "address": "0x8003fecc",
+          "value": "0x1f801114",
+          "referenced_by": [
+            "0x800344d0"
+          ]
+        },
+        {
+          "address": "0x8003fed8",
+          "value": "0x1f8010f4",
+          "referenced_by": [
+            "0x80034698",
+            "0x800346e4",
+            "0x80034864"
+          ]
+        },
+        {
+          "address": "0x8003fefc",
+          "value": "0x1f801080",
+          "referenced_by": [
+            "0x800346e4"
+          ]
+        },
+        {
+          "address": "0x80040088",
+          "value": "0x1f801c00",
+          "referenced_by": [
+            "0x8002f384",
+            "0x8002f694",
+            "0x8002fc30",
+            "0x8002ff40",
+            "0x80030060",
+            "0x80030590",
+            "0x80030650",
+            "0x800308cc",
+            "0x80036b38",
+            "0x80036db8",
+            "0x80036f78",
+            "0x80037044",
+            "0x80037338",
+            "0x8003737c"
+          ]
+        },
+        {
+          "address": "0x8004008c",
+          "value": "0x1f8010c0",
+          "referenced_by": [
+            "0x80037044"
+          ]
+        },
+        {
+          "address": "0x80040090",
+          "value": "0x1f8010c4",
+          "referenced_by": [
+            "0x80037044"
+          ]
+        },
+        {
+          "address": "0x80040094",
+          "value": "0x1f8010c8",
+          "referenced_by": [
+            "0x80037044"
+          ]
+        },
+        {
+          "address": "0x80040098",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x80036b38",
+            "0x80037420"
+          ]
+        },
+        {
+          "address": "0x8004009c",
+          "value": "0x1f801014",
+          "referenced_by": [
+            "0x80037478",
+            "0x800374a0"
+          ]
+        },
+        {
+          "address": "0x800403b4",
+          "value": "0x1f801800",
+          "referenced_by": [
+            "0x80037530",
+            "0x80037a94",
+            "0x80037d14",
+            "0x80037fdc",
+            "0x800383e8",
+            "0x800384bc",
+            "0x800385ac",
+            "0x8003878c",
+            "0x8003888c",
+            "0x80038984"
+          ]
+        },
+        {
+          "address": "0x800403b8",
+          "value": "0x1f801801",
+          "referenced_by": [
+            "0x80037530",
+            "0x80037fdc",
+            "0x800384bc"
+          ]
+        },
+        {
+          "address": "0x800403bc",
+          "value": "0x1f801802",
+          "referenced_by": [
+            "0x80037530",
+            "0x80037fdc",
+            "0x800383e8",
+            "0x800384bc",
+            "0x800385ac"
+          ]
+        },
+        {
+          "address": "0x800403c0",
+          "value": "0x1f801803",
+          "referenced_by": [
+            "0x80037530",
+            "0x800383e8",
+            "0x800384bc",
+            "0x800385ac",
+            "0x8003878c",
+            "0x8003888c"
+          ]
+        },
+        {
+          "address": "0x800403c4",
+          "value": "0x1f801020",
+          "referenced_by": [
+            "0x800383e8",
+            "0x800385ac",
+            "0x8003878c",
+            "0x8003888c"
+          ]
+        },
+        {
+          "address": "0x800403c8",
+          "value": "0x1f801c00",
+          "referenced_by": [
+            "0x800384bc"
+          ]
+        },
+        {
+          "address": "0x800403e8",
+          "value": "0x1f801018",
+          "referenced_by": [
+            "0x8003878c",
+            "0x8003888c"
+          ]
+        },
+        {
+          "address": "0x800403ec",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x8003878c",
+            "0x8003888c"
+          ]
+        },
+        {
+          "address": "0x800403f0",
+          "value": "0x1f8010b0",
+          "referenced_by": [
+            "0x8003878c",
+            "0x8003888c"
+          ]
+        },
+        {
+          "address": "0x800403f4",
+          "value": "0x1f8010b4",
+          "referenced_by": [
+            "0x8003878c",
+            "0x8003888c"
+          ]
+        },
+        {
+          "address": "0x800403f8",
+          "value": "0x1f8010b8",
+          "referenced_by": [
+            "0x8003878c",
+            "0x8003888c"
+          ]
+        },
+        {
+          "address": "0x80040620",
+          "value": "0x1f801070",
+          "referenced_by": [
+            "0x80039020",
+            "0x80039218",
+            "0x80039328",
+            "0x8003974c",
+            "0x8003995c",
+            "0x80039bd4"
+          ]
+        },
+        {
+          "address": "0x80040624",
+          "value": "0x1f801040",
+          "referenced_by": [
+            "0x80039088",
+            "0x80039328",
+            "0x8003974c",
+            "0x8003995c",
+            "0x80039bd4",
+            "0x80039c64"
+          ]
+        },
+        {
+          "address": "0x8004526c",
+          "value": "0x1f801040",
+          "referenced_by": [
+            "0x8003c8d0"
+          ]
+        }
+      ],
+      "startup_gp_pair": {
+        "pc": "0x80029540",
+        "value": "0x80045418"
+      }
+    },
+    {
+      "path": "MAIN_T.EXE",
+      "sha256": "d44b94589f0063e1006afd27c767302056ac524702baa6dd4fea8654bcc87cf9",
+      "entry_point": "0x8002bf78",
+      "load_address": "0x80019000",
+      "payload_size": 194560,
+      "sha1": "7eb79e31da2c7456a1ece52835948b75979ce65a",
+      "analyzer_stats": {
+        "total_functions": 679,
+        "total_instructions": 38376,
+        "bytes_covered": 153504,
+        "bytes_image": 194560,
+        "verified": 298,
+        "high": 256,
+        "medium": 68,
+        "low": 55,
+        "data": 2,
+        "reachable": 566,
+        "orphans": 113,
+        "named": 0,
+        "direct_edges": 1546,
+        "jump_tables_resolved": 13,
+        "jump_table_targets": 333,
+        "indirect_unresolved": 124,
+        "partial_functions": 2,
+        "undecoded_words": 156
+      },
+      "gte_function_candidates": 17,
+      "anchors": [
+        {
+          "text": "C:/psj/dev/locale/game/VideoSys.cpp",
+          "address": "0x80019028",
+          "function_candidates": [
+            "0x8001d5f8",
+            "0x8001dbc8",
+            "0x8001e358"
+          ],
+          "reference_sites": [
+            "0x8001d9bc",
+            "0x8001e198",
+            "0x8001e288",
+            "0x8001e3a0"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/CdSys.cpp",
+          "address": "0x800190a4",
+          "function_candidates": [
+            "0x8001efec",
+            "0x8001f048"
+          ],
+          "reference_sites": [
+            "0x8001f018",
+            "0x8001f074"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/AudioSys.cpp",
+          "address": "0x8001913c",
+          "function_candidates": [
+            "0x8001f13c",
+            "0x8001f86c",
+            "0x8001fa7c",
+            "0x8001fb8c",
+            "0x8001fc18"
+          ],
+          "reference_sites": [
+            "0x8001f188",
+            "0x8001f8a0",
+            "0x8001fab0",
+            "0x8001fbb4",
+            "0x8001fc84",
+            "0x8001fcac"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/InputSys.cpp",
+          "address": "0x80019210",
+          "function_candidates": [
+            "0x800206d4",
+            "0x80020728"
+          ],
+          "reference_sites": [
+            "0x800206f0",
+            "0x8002074c"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/MemorySys.cpp",
+          "address": "0x8001926c",
+          "function_candidates": [
+            "0x800216fc",
+            "0x80021988"
+          ],
+          "reference_sites": [
+            "0x80021728",
+            "0x80021a18"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/FileSys.cpp",
+          "address": "0x80019470",
+          "function_candidates": [],
+          "reference_sites": []
+        },
+        {
+          "text": "C:/psj/dev/locale/game/PackedFiles.cpp",
+          "address": "0x800194e0",
+          "function_candidates": [],
+          "reference_sites": []
+        },
+        {
+          "text": "C:/psj/dev/locale/game/InputControl.cpp",
+          "address": "0x800196dc",
+          "function_candidates": [
+            "0x800245cc",
+            "0x800246ec"
+          ],
+          "reference_sites": [
+            "0x800246c8",
+            "0x800247fc"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/TmdLineObj.cpp",
+          "address": "0x8001974c",
+          "function_candidates": [
+            "0x80024a48"
+          ],
+          "reference_sites": [
+            "0x80024c54"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/Message.cpp",
+          "address": "0x8001a118",
+          "function_candidates": [
+            "0x8002aa50"
+          ],
+          "reference_sites": [
+            "0x8002ac60"
+          ]
+        },
+        {
+          "text": "C:/psj/dev/locale/game/FontHack.cpp",
+          "address": "0x8001a164",
+          "function_candidates": [
+            "0x8002aec0",
+            "0x8002af90"
+          ],
+          "reference_sites": [
+            "0x8002aef8",
+            "0x8002af4c",
+            "0x8002afc8"
+          ]
+        }
+      ],
+      "hardware_pointer_literals": [
+        {
+          "address": "0x8004197c",
+          "value": "0x1f801070",
+          "referenced_by": [
+            "0x8002c1dc",
+            "0x8002c2b4",
+            "0x8002c5cc"
+          ]
+        },
+        {
+          "address": "0x80041980",
+          "value": "0x1f801074",
+          "referenced_by": [
+            "0x8002c1c4",
+            "0x8002c1dc",
+            "0x8002c2b4",
+            "0x8002c484",
+            "0x8002c5cc",
+            "0x8002c66c"
+          ]
+        },
+        {
+          "address": "0x80041984",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x8002c1dc",
+            "0x8002c5cc",
+            "0x8002c66c"
+          ]
+        },
+        {
+          "address": "0x80041aec",
+          "value": "0x1f801810",
+          "referenced_by": [
+            "0x8002e3d8",
+            "0x8002e614",
+            "0x8002e8cc",
+            "0x8002e954",
+            "0x8002f2bc"
+          ]
+        },
+        {
+          "address": "0x80041af0",
+          "value": "0x1f801814",
+          "referenced_by": [
+            "0x8002e0b0",
+            "0x8002e1a8",
+            "0x8002e3d8",
+            "0x8002e614",
+            "0x8002e894",
+            "0x8002e8cc",
+            "0x8002e90c",
+            "0x8002e954",
+            "0x8002e9a8",
+            "0x8002ec58",
+            "0x8002eeb8",
+            "0x8002f008",
+            "0x8002f178",
+            "0x8002f2bc"
+          ]
+        },
+        {
+          "address": "0x80041af4",
+          "value": "0x1f8010a0",
+          "referenced_by": [
+            "0x8002e3d8",
+            "0x8002e614",
+            "0x8002e90c",
+            "0x8002f178"
+          ]
+        },
+        {
+          "address": "0x80041af8",
+          "value": "0x1f8010a4",
+          "referenced_by": [
+            "0x8002e3d8",
+            "0x8002e614",
+            "0x8002e90c"
+          ]
+        },
+        {
+          "address": "0x80041afc",
+          "value": "0x1f8010a8",
+          "referenced_by": [
+            "0x8002e3d8",
+            "0x8002e614",
+            "0x8002e90c",
+            "0x8002e9a8",
+            "0x8002ec58",
+            "0x8002eeb8",
+            "0x8002f008",
+            "0x8002f178"
+          ]
+        },
+        {
+          "address": "0x80041b00",
+          "value": "0x1f8010e0",
+          "referenced_by": [
+            "0x8002e0c8"
+          ]
+        },
+        {
+          "address": "0x80041b04",
+          "value": "0x1f8010e4",
+          "referenced_by": [
+            "0x8002e0c8"
+          ]
+        },
+        {
+          "address": "0x80041b08",
+          "value": "0x1f8010e8",
+          "referenced_by": [
+            "0x8002e0c8"
+          ]
+        },
+        {
+          "address": "0x80041b0c",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x8002e0c8",
+            "0x8002eeb8",
+            "0x8002f178"
+          ]
+        },
+        {
+          "address": "0x800426f0",
+          "value": "0x1f801814",
+          "referenced_by": [
+            "0x800309e4"
+          ]
+        },
+        {
+          "address": "0x800426f4",
+          "value": "0x1f801110",
+          "referenced_by": [
+            "0x800309e4"
+          ]
+        },
+        {
+          "address": "0x800428b8",
+          "value": "0x1f801040",
+          "referenced_by": [
+            "0x80033af8"
+          ]
+        },
+        {
+          "address": "0x8004296c",
+          "value": "0x1f801114",
+          "referenced_by": [
+            "0x80036f34"
+          ]
+        },
+        {
+          "address": "0x80042978",
+          "value": "0x1f8010f4",
+          "referenced_by": [
+            "0x800370fc",
+            "0x80037148",
+            "0x800372c8"
+          ]
+        },
+        {
+          "address": "0x8004299c",
+          "value": "0x1f801080",
+          "referenced_by": [
+            "0x80037148"
+          ]
+        },
+        {
+          "address": "0x80042b28",
+          "value": "0x1f801c00",
+          "referenced_by": [
+            "0x80031e48",
+            "0x80032158",
+            "0x800326f4",
+            "0x80032ae4",
+            "0x80033014",
+            "0x80033330",
+            "0x8003959c",
+            "0x8003981c",
+            "0x800399dc",
+            "0x80039aa8",
+            "0x80039d9c",
+            "0x80039de0"
+          ]
+        },
+        {
+          "address": "0x80042b2c",
+          "value": "0x1f8010c0",
+          "referenced_by": [
+            "0x80039aa8"
+          ]
+        },
+        {
+          "address": "0x80042b30",
+          "value": "0x1f8010c4",
+          "referenced_by": [
+            "0x80039aa8"
+          ]
+        },
+        {
+          "address": "0x80042b34",
+          "value": "0x1f8010c8",
+          "referenced_by": [
+            "0x80039aa8"
+          ]
+        },
+        {
+          "address": "0x80042b38",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x8003959c",
+            "0x80039e84"
+          ]
+        },
+        {
+          "address": "0x80042b3c",
+          "value": "0x1f801014",
+          "referenced_by": [
+            "0x80039edc",
+            "0x80039f04"
+          ]
+        },
+        {
+          "address": "0x80042e54",
+          "value": "0x1f801800",
+          "referenced_by": [
+            "0x80039f94",
+            "0x8003a4f8",
+            "0x8003a778",
+            "0x8003aa40",
+            "0x8003ae4c",
+            "0x8003af20",
+            "0x8003b010",
+            "0x8003b1f0",
+            "0x8003b2f0",
+            "0x8003b3e8"
+          ]
+        },
+        {
+          "address": "0x80042e58",
+          "value": "0x1f801801",
+          "referenced_by": [
+            "0x80039f94",
+            "0x8003aa40",
+            "0x8003af20"
+          ]
+        },
+        {
+          "address": "0x80042e5c",
+          "value": "0x1f801802",
+          "referenced_by": [
+            "0x80039f94",
+            "0x8003aa40",
+            "0x8003ae4c",
+            "0x8003af20",
+            "0x8003b010"
+          ]
+        },
+        {
+          "address": "0x80042e60",
+          "value": "0x1f801803",
+          "referenced_by": [
+            "0x80039f94",
+            "0x8003ae4c",
+            "0x8003af20",
+            "0x8003b010",
+            "0x8003b1f0",
+            "0x8003b2f0"
+          ]
+        },
+        {
+          "address": "0x80042e64",
+          "value": "0x1f801020",
+          "referenced_by": [
+            "0x8003ae4c",
+            "0x8003b010",
+            "0x8003b1f0",
+            "0x8003b2f0"
+          ]
+        },
+        {
+          "address": "0x80042e68",
+          "value": "0x1f801c00",
+          "referenced_by": [
+            "0x8003af20"
+          ]
+        },
+        {
+          "address": "0x80042e88",
+          "value": "0x1f801018",
+          "referenced_by": [
+            "0x8003b1f0",
+            "0x8003b2f0"
+          ]
+        },
+        {
+          "address": "0x80042e8c",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x8003b1f0",
+            "0x8003b2f0"
+          ]
+        },
+        {
+          "address": "0x80042e90",
+          "value": "0x1f8010b0",
+          "referenced_by": [
+            "0x8003b1f0",
+            "0x8003b2f0"
+          ]
+        },
+        {
+          "address": "0x80042e94",
+          "value": "0x1f8010b4",
+          "referenced_by": [
+            "0x8003b1f0",
+            "0x8003b2f0"
+          ]
+        },
+        {
+          "address": "0x80042e98",
+          "value": "0x1f8010b8",
+          "referenced_by": [
+            "0x8003b1f0",
+            "0x8003b2f0"
+          ]
+        },
+        {
+          "address": "0x800430c0",
+          "value": "0x1f801070",
+          "referenced_by": [
+            "0x8003ba84",
+            "0x8003bc7c",
+            "0x8003bd8c",
+            "0x8003c1b0",
+            "0x8003c3c0",
+            "0x8003c638"
+          ]
+        },
+        {
+          "address": "0x800430c4",
+          "value": "0x1f801040",
+          "referenced_by": [
+            "0x8003baec",
+            "0x8003bd8c",
+            "0x8003c1b0",
+            "0x8003c3c0",
+            "0x8003c638",
+            "0x8003c6c8"
+          ]
+        },
+        {
+          "address": "0x80047d0c",
+          "value": "0x1f801040",
+          "referenced_by": [
+            "0x8003f334"
+          ]
+        }
+      ],
+      "startup_gp_pair": {
+        "pc": "0x8002c004",
+        "value": "0x80047eb8"
+      }
+    },
+    {
+      "path": "SCES_028.73",
+      "sha256": "90970c5bc50857bedba57be336d47e43ea2679b794cb6d01c19bb32c32a1b896",
+      "entry_point": "0x80011f2c",
+      "load_address": "0x80010000",
+      "payload_size": 26624,
+      "sha1": "4072b2c5550f50ba46a87fcd775403e4c2119ae6",
+      "analyzer_stats": {
+        "total_functions": 102,
+        "total_instructions": 6207,
+        "bytes_covered": 24828,
+        "bytes_image": 26624,
+        "verified": 55,
+        "high": 36,
+        "medium": 5,
+        "low": 6,
+        "data": 0,
+        "reachable": 95,
+        "orphans": 7,
+        "named": 0,
+        "direct_edges": 226,
+        "jump_tables_resolved": 1,
+        "jump_table_targets": 5,
+        "indirect_unresolved": 19,
+        "partial_functions": 1,
+        "undecoded_words": 71
+      },
+      "gte_function_candidates": 1,
+      "anchors": [
+        {
+          "text": "C:/psj/dev/locale/game/loader.cpp",
+          "address": "0x800100a0",
+          "function_candidates": [
+            "0x800108ec"
+          ],
+          "reference_sites": [
+            "0x80010974"
+          ]
+        },
+        {
+          "text": "main_t.exe",
+          "address": "0x80010100",
+          "function_candidates": [],
+          "reference_sites": []
+        },
+        {
+          "text": "main_g.exe",
+          "address": "0x8001010c",
+          "function_candidates": [],
+          "reference_sites": []
+        },
+        {
+          "text": "main_k.exe",
+          "address": "0x80010118",
+          "function_candidates": [],
+          "reference_sites": []
+        }
+      ],
+      "hardware_pointer_literals": [
+        {
+          "address": "0x8001630c",
+          "value": "0x1f801070",
+          "referenced_by": [
+            "0x80010bd8",
+            "0x80010cb0",
+            "0x80010fc8"
+          ]
+        },
+        {
+          "address": "0x80016310",
+          "value": "0x1f801074",
+          "referenced_by": [
+            "0x80010bc0",
+            "0x80010bd8",
+            "0x80010cb0",
+            "0x80010e80",
+            "0x80010fc8",
+            "0x80011068"
+          ]
+        },
+        {
+          "address": "0x80016314",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x80010bd8",
+            "0x80010fc8",
+            "0x80011068"
+          ]
+        },
+        {
+          "address": "0x80016434",
+          "value": "0x1f801814",
+          "referenced_by": [
+            "0x80012b84"
+          ]
+        },
+        {
+          "address": "0x80016438",
+          "value": "0x1f801110",
+          "referenced_by": [
+            "0x80012b84"
+          ]
+        },
+        {
+          "address": "0x80016470",
+          "value": "0x1f801114",
+          "referenced_by": [
+            "0x80012dc4"
+          ]
+        },
+        {
+          "address": "0x8001647c",
+          "value": "0x1f8010f4",
+          "referenced_by": [
+            "0x80012ee4",
+            "0x80012f30",
+            "0x800130b0"
+          ]
+        },
+        {
+          "address": "0x800164a0",
+          "value": "0x1f801080",
+          "referenced_by": [
+            "0x80012f30"
+          ]
+        },
+        {
+          "address": "0x80016778",
+          "value": "0x1f801800",
+          "referenced_by": [
+            "0x80013214",
+            "0x80013778",
+            "0x800139f8",
+            "0x80013cc0",
+            "0x800140cc",
+            "0x800141a0",
+            "0x80014290",
+            "0x800145d8",
+            "0x800146d8",
+            "0x800147d0"
+          ]
+        },
+        {
+          "address": "0x8001677c",
+          "value": "0x1f801801",
+          "referenced_by": [
+            "0x80013214",
+            "0x80013cc0",
+            "0x800141a0"
+          ]
+        },
+        {
+          "address": "0x80016780",
+          "value": "0x1f801802",
+          "referenced_by": [
+            "0x80013214",
+            "0x80013cc0",
+            "0x800140cc",
+            "0x800141a0",
+            "0x80014290"
+          ]
+        },
+        {
+          "address": "0x80016784",
+          "value": "0x1f801803",
+          "referenced_by": [
+            "0x80013214",
+            "0x800140cc",
+            "0x800141a0",
+            "0x80014290",
+            "0x800145d8",
+            "0x800146d8"
+          ]
+        },
+        {
+          "address": "0x80016788",
+          "value": "0x1f801020",
+          "referenced_by": [
+            "0x800140cc",
+            "0x80014290",
+            "0x800145d8",
+            "0x800146d8"
+          ]
+        },
+        {
+          "address": "0x8001678c",
+          "value": "0x1f801c00",
+          "referenced_by": [
+            "0x800141a0"
+          ]
+        },
+        {
+          "address": "0x800167ac",
+          "value": "0x1f801018",
+          "referenced_by": [
+            "0x800145d8",
+            "0x800146d8"
+          ]
+        },
+        {
+          "address": "0x800167b0",
+          "value": "0x1f8010f0",
+          "referenced_by": [
+            "0x800145d8",
+            "0x800146d8"
+          ]
+        },
+        {
+          "address": "0x800167b4",
+          "value": "0x1f8010b0",
+          "referenced_by": [
+            "0x800145d8",
+            "0x800146d8"
+          ]
+        },
+        {
+          "address": "0x800167b8",
+          "value": "0x1f8010b4",
+          "referenced_by": [
+            "0x800145d8",
+            "0x800146d8"
+          ]
+        },
+        {
+          "address": "0x800167bc",
+          "value": "0x1f8010b8",
+          "referenced_by": [
+            "0x80014470",
+            "0x800145d8",
+            "0x800146d8"
+          ]
+        }
+      ],
+      "startup_gp_pair": {
+        "pc": "0x80011fa8",
+        "value": "0x800167cc"
+      }
+    }
+  ],
+  "open_ribbon_title_sha1_match": true
+}

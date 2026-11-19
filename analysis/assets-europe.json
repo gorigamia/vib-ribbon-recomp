@@ -1,0 +1,533 @@
+{
+  "fsl": {
+    "sha256": "8e8332ba2baedbcbd03620f0bf8301a6d66927b8676725fd7e77bf477973f7ce",
+    "size": 26920,
+    "header": [
+      7,
+      7,
+      7,
+      7,
+      11,
+      63,
+      6,
+      0,
+      1
+    ],
+    "section_offsets": {
+      "fixed": "0x40",
+      "distribution": "0xec",
+      "control": "0xdb8",
+      "pattern": "0x56cc",
+      "event": "0x5ec8",
+      "track_index": "0x68d4"
+    },
+    "fixed_patterns": [
+      [
+        3,
+        2,
+        9,
+        9,
+        9
+      ],
+      [
+        1,
+        0,
+        4,
+        4,
+        4
+      ],
+      [
+        0,
+        2,
+        1,
+        3
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        3,
+        2,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "distribution_pattern_count": 63,
+    "track_indices": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        3,
+        3,
+        3
+      ],
+      [
+        4,
+        4,
+        4
+      ],
+      [
+        5,
+        5,
+        5
+      ],
+      [
+        6,
+        6,
+        6
+      ]
+    ],
+    "tracks": [
+      {
+        "index": 0,
+        "control": {
+          "segments": 12,
+          "first_time": 0,
+          "last_time": 3020629
+        },
+        "pattern": {
+          "segments": 5,
+          "first_time": 0,
+          "last_time": 2555815
+        },
+        "event": {
+          "segments": 4,
+          "first_time": 0,
+          "last_time": 3020629
+        }
+      },
+      {
+        "index": 1,
+        "control": {
+          "segments": 35,
+          "first_time": 0,
+          "last_time": 2924711
+        },
+        "pattern": {
+          "segments": 5,
+          "first_time": 0,
+          "last_time": 2427043
+        },
+        "event": {
+          "segments": 4,
+          "first_time": 0,
+          "last_time": 2924711
+        }
+      },
+      {
+        "index": 2,
+        "control": {
+          "segments": 28,
+          "first_time": 0,
+          "last_time": 3259430
+        },
+        "pattern": {
+          "segments": 8,
+          "first_time": 0,
+          "last_time": 2913245
+        },
+        "event": {
+          "segments": 4,
+          "first_time": 0,
+          "last_time": 3259430
+        }
+      },
+      {
+        "index": 3,
+        "control": {
+          "segments": 5,
+          "first_time": 0,
+          "last_time": 3307500
+        },
+        "pattern": {
+          "segments": 5,
+          "first_time": 0,
+          "last_time": 2524725
+        },
+        "event": {
+          "segments": 4,
+          "first_time": 0,
+          "last_time": 2533544
+        }
+      },
+      {
+        "index": 4,
+        "control": {
+          "segments": 36,
+          "first_time": 0,
+          "last_time": 3565043
+        },
+        "pattern": {
+          "segments": 8,
+          "first_time": 0,
+          "last_time": 2966386
+        },
+        "event": {
+          "segments": 4,
+          "first_time": 0,
+          "last_time": 3565043
+        }
+      },
+      {
+        "index": 5,
+        "control": {
+          "segments": 44,
+          "first_time": 0,
+          "last_time": 3195485
+        },
+        "pattern": {
+          "segments": 5,
+          "first_time": 0,
+          "last_time": 2526047
+        },
+        "event": {
+          "segments": 4,
+          "first_time": 0,
+          "last_time": 3195485
+        }
+      },
+      {
+        "index": 6,
+        "control": {
+          "segments": 774,
+          "first_time": 0,
+          "last_time": 97902000
+        },
+        "pattern": {
+          "segments": 90,
+          "first_time": 0,
+          "last_time": 97902000
+        },
+        "event": {
+          "segments": 82,
+          "first_time": 0,
+          "last_time": 97902000
+        }
+      }
+    ]
+  },
+  "models": [
+    {
+      "path": "CHARA/FROG/MODEL.TMD",
+      "objects": 14,
+      "vertices": 148,
+      "primitive_modes": {
+        "0x40": 157,
+        "0x21": 2
+      },
+      "decoded_lines": 157
+    },
+    {
+      "path": "CHARA/PEELOO/MODEL.TMD",
+      "objects": 16,
+      "vertices": 156,
+      "primitive_modes": {
+        "0x40": 171,
+        "0x21": 5
+      },
+      "decoded_lines": 171
+    },
+    {
+      "path": "CHARA/SNAKE/MODEL.TMD",
+      "objects": 11,
+      "vertices": 80,
+      "primitive_modes": {
+        "0x40": 110,
+        "0x21": 2
+      },
+      "decoded_lines": 110
+    },
+    {
+      "path": "CHARA/SUPER/MODEL.TMD",
+      "objects": 11,
+      "vertices": 114,
+      "primitive_modes": {
+        "0x40": 135,
+        "0x21": 3
+      },
+      "decoded_lines": 135
+    },
+    {
+      "path": "FONT/FE_FONT.TMD",
+      "objects": 113,
+      "vertices": 690,
+      "primitive_modes": {
+        "0x40": 511
+      },
+      "decoded_lines": 511
+    },
+    {
+      "path": "FONT/MARK.TMD",
+      "objects": 15,
+      "vertices": 83,
+      "primitive_modes": {
+        "0x40": 86
+      },
+      "decoded_lines": 86
+    },
+    {
+      "path": "MESSAGE/02_AUTO.TMD",
+      "objects": 3,
+      "vertices": 33,
+      "primitive_modes": {
+        "0x40": 22
+      },
+      "decoded_lines": 22
+    },
+    {
+      "path": "MESSAGE/02_ROUND.TMD",
+      "objects": 2,
+      "vertices": 59,
+      "primitive_modes": {
+        "0x40": 49
+      },
+      "decoded_lines": 49
+    },
+    {
+      "path": "MESSAGE/DEMO.TMD",
+      "objects": 3,
+      "vertices": 33,
+      "primitive_modes": {
+        "0x40": 24
+      },
+      "decoded_lines": 24
+    },
+    {
+      "path": "METERS/02_SPD_LBL.TMD",
+      "objects": 1,
+      "vertices": 65,
+      "primitive_modes": {
+        "0x40": 51
+      },
+      "decoded_lines": 51
+    },
+    {
+      "path": "METERS/EVO.TMD",
+      "objects": 18,
+      "vertices": 340,
+      "primitive_modes": {
+        "0x40": 170
+      },
+      "decoded_lines": 170
+    },
+    {
+      "path": "METERS/SPEED.TMD",
+      "objects": 3,
+      "vertices": 27,
+      "primitive_modes": {
+        "0x40": 24
+      },
+      "decoded_lines": 24
+    },
+    {
+      "path": "METERS/TIME.TMD",
+      "objects": 1,
+      "vertices": 32,
+      "primitive_modes": {
+        "0x40": 32
+      },
+      "decoded_lines": 32
+    },
+    {
+      "path": "ROAD/MARK.TMD",
+      "objects": 2,
+      "vertices": 6,
+      "primitive_modes": {
+        "0x40": 6
+      },
+      "decoded_lines": 6
+    },
+    {
+      "path": "ROAD/POINT.TMD",
+      "objects": 1,
+      "vertices": 1,
+      "primitive_modes": {
+        "0x40": 1
+      },
+      "decoded_lines": 1
+    },
+    {
+      "path": "ROAD/ROAD.TMD",
+      "objects": 10,
+      "vertices": 103,
+      "primitive_modes": {
+        "0x40": 93
+      },
+      "decoded_lines": 93
+    },
+    {
+      "path": "TITLE/AGAIN/02_AG.TMD",
+      "objects": 16,
+      "vertices": 729,
+      "primitive_modes": {
+        "0x40": 701
+      },
+      "decoded_lines": 701
+    },
+    {
+      "path": "TITLE/AL/02_AL.TMD",
+      "objects": 5,
+      "vertices": 350,
+      "primitive_modes": {
+        "0x40": 291
+      },
+      "decoded_lines": 291
+    },
+    {
+      "path": "TITLE/CD/02_CD.TMD",
+      "objects": 8,
+      "vertices": 254,
+      "primitive_modes": {
+        "0x40": 215
+      },
+      "decoded_lines": 215
+    },
+    {
+      "path": "TITLE/END/02_CL_OV.TMD",
+      "objects": 64,
+      "vertices": 652,
+      "primitive_modes": {
+        "0x40": 626
+      },
+      "decoded_lines": 626
+    },
+    {
+      "path": "TITLE/END/CLR_SONG.TMD",
+      "objects": 20,
+      "vertices": 93,
+      "primitive_modes": {
+        "0x40": 80
+      },
+      "decoded_lines": 80
+    },
+    {
+      "path": "TITLE/END/SPD_MOJA.TMD",
+      "objects": 1,
+      "vertices": 40,
+      "primitive_modes": {
+        "0x40": 38
+      },
+      "decoded_lines": 38
+    },
+    {
+      "path": "TITLE/END/SPD_MTR.TMD",
+      "objects": 7,
+      "vertices": 127,
+      "primitive_modes": {
+        "0x40": 118
+      },
+      "decoded_lines": 118
+    },
+    {
+      "path": "TITLE/HISCORE/02_HI.TMD",
+      "objects": 50,
+      "vertices": 628,
+      "primitive_modes": {
+        "0x40": 602
+      },
+      "decoded_lines": 602
+    },
+    {
+      "path": "TITLE/MA/02_MA.TMD",
+      "objects": 10,
+      "vertices": 423,
+      "primitive_modes": {
+        "0x40": 344
+      },
+      "decoded_lines": 344
+    },
+    {
+      "path": "TITLE/MODE/02_MDU.TMD",
+      "objects": 14,
+      "vertices": 409,
+      "primitive_modes": {
+        "0x40": 351
+      },
+      "decoded_lines": 351
+    },
+    {
+      "path": "TITLE/MODE/02_MDV.TMD",
+      "objects": 12,
+      "vertices": 497,
+      "primitive_modes": {
+        "0x40": 439
+      },
+      "decoded_lines": 439
+    },
+    {
+      "path": "TITLE/OPTION/02_OP.TMD",
+      "objects": 12,
+      "vertices": 315,
+      "primitive_modes": {
+        "0x40": 273
+      },
+      "decoded_lines": 273
+    },
+    {
+      "path": "TITLE/SPEED/02_MD_SPD.TMD",
+      "objects": 10,
+      "vertices": 337,
+      "primitive_modes": {
+        "0x40": 293
+      },
+      "decoded_lines": 293
+    },
+    {
+      "path": "TITLE/TRK/02_TRK.TMD",
+      "objects": 5,
+      "vertices": 158,
+      "primitive_modes": {
+        "0x40": 130
+      },
+      "decoded_lines": 130
+    },
+    {
+      "path": "TITLE/VIBRI/VIBRI.TMD",
+      "objects": 53,
+      "vertices": 346,
+      "primitive_modes": {
+        "0x40": 346,
+        "0x21": 7
+      },
+      "decoded_lines": 346
+    }
+  ]
+}

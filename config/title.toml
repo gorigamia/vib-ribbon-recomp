@@ -1,0 +1,15 @@
+# Isolated title code-generation experiment. Not a standalone game configuration.
+[game]
+name = "Vib-Ribbon title"
+id = "SCES-02873"
+exe = ".local/executables/MAIN_T.EXE"
+load_address = "0x80019000"
+entry_pc = "0x8002bf78"
+text_size = "0x2f800"
+
+[recompiler]
+seeds = "seeds/title.txt"
+out_dir = ".local/generated/title"
+bios_config = "tools/psxrecomp-src/bios/OpenBIOS.toml"
+strict = true
+discovery = "reachable"

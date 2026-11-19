@@ -1,0 +1,138 @@
+{
+  "dataTrack": "Vib-Ribbon (Europe) (En,Fr,De,Es,It) (Track 1).bin",
+  "dataTrackSha256": "f30e9fddc1e6a0458927c7dc832a9afd279469a169dab7bf522c5b881c82ad0f",
+  "volume": "",
+  "config": "BOOT = cdrom:\\SCES_028.73;1\r\nTCB = 4\r\nEVENT = 10\r\nSTACK = 801FFFF0\r\n",
+  "boot": {
+    "path": "SCES_028.73;1",
+    "signature": "PS-X EXE",
+    "sha256": "90970c5bc50857bedba57be336d47e43ea2679b794cb6d01c19bb32c32a1b896",
+    "entryPoint": "0x80011f2c",
+    "globalPointer": "0x0",
+    "loadAddress": "0x80010000",
+    "payloadSize": 26624,
+    "stackBase": "0x801ffff0"
+  },
+  "files": [
+    {
+      "path": "GAME/01_FILES.PAK;1",
+      "extent": 413,
+      "size": 907232
+    },
+    {
+      "path": "GAME/02_FILES.PAK;1",
+      "extent": 856,
+      "size": 934980
+    },
+    {
+      "path": "GAME/04_FILES.PAK;1",
+      "extent": 1313,
+      "size": 948060
+    },
+    {
+      "path": "GAME/08_FILES.PAK;1",
+      "extent": 1776,
+      "size": 946732
+    },
+    {
+      "path": "GAME/10_FILES.PAK;1",
+      "extent": 2239,
+      "size": 940892
+    },
+    {
+      "path": "GAME/20_FILES.PAK;1",
+      "extent": 2699,
+      "size": 941496
+    },
+    {
+      "path": "GAME/AUDIO/PSJ_SE.VB;1",
+      "extent": 3160,
+      "size": 501520
+    },
+    {
+      "path": "GAME/AUDIO/PSJ_SE.VH;1",
+      "extent": 3405,
+      "size": 10784
+    },
+    {
+      "path": "KIOSK/01_FILES.PAK;1",
+      "extent": 3412,
+      "size": 815744
+    },
+    {
+      "path": "KIOSK/02_FILES.PAK;1",
+      "extent": 3811,
+      "size": 860816
+    },
+    {
+      "path": "KIOSK/04_FILES.PAK;1",
+      "extent": 4232,
+      "size": 857248
+    },
+    {
+      "path": "KIOSK/08_FILES.PAK;1",
+      "extent": 4651,
+      "size": 852684
+    },
+    {
+      "path": "KIOSK/10_FILES.PAK;1",
+      "extent": 5068,
+      "size": 872480
+    },
+    {
+      "path": "KIOSK/20_FILES.PAK;1",
+      "extent": 5495,
+      "size": 852520
+    },
+    {
+      "path": "KIOSK/AUDIO/KIOSK.VB;1",
+      "extent": 5913,
+      "size": 7872
+    },
+    {
+      "path": "KIOSK/AUDIO/KIOSK.VH;1",
+      "extent": 5917,
+      "size": 3104
+    },
+    {
+      "path": "MAIN_G.EXE;1",
+      "extent": 23,
+      "size": 385024
+    },
+    {
+      "path": "MAIN_K.EXE;1",
+      "extent": 211,
+      "size": 184320
+    },
+    {
+      "path": "MAIN_T.EXE;1",
+      "extent": 301,
+      "size": 196608
+    },
+    {
+      "path": "SCES_028.73;1",
+      "extent": 397,
+      "size": 28672
+    },
+    {
+      "path": "SYSTEM.CNF;1",
+      "extent": 411,
+      "size": 68
+    },
+    {
+      "path": "TITLE/AUDIO/TITLE.VB;1",
+      "extent": 6295,
+      "size": 440736
+    },
+    {
+      "path": "TITLE/AUDIO/TITLE.VH;1",
+      "extent": 6511,
+      "size": 11808
+    },
+    {
+      "path": "TITLE/FILES.PAK;1",
+      "extent": 5920,
+      "size": 764536
+    }
+  ]
+}

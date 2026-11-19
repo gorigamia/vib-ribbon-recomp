@@ -1,0 +1,15 @@
+diff --git a/recompiler/src/main_psx.cpp b/recompiler/src/main_psx.cpp
+index 51519c7..6619e38 100644
+--- a/recompiler/src/main_psx.cpp
++++ b/recompiler/src/main_psx.cpp
+@@ -409,6 +409,10 @@ static int psxrecomp_game_main(int argc, char** argv) {
+     // sites (same TOML) — std::set insert dedupes.
+     if (!ws_config_path.empty()) {
+         const auto wscfg = PSXRecompV4::load_game_config(ws_config_path);
++        // Overlay compilation supplies the title config through --ws-config.
++        // Keep its selected BIOS address model without replacing the overlay
++        // image, seeds or output paths supplied by the positional invocation.
++        if (bios_profile_path.empty()) bios_profile_path = wscfg.bios_config_path;
+         ws_tag_funcs.insert(wscfg.ws_sprite_tag_funcs.begin(), wscfg.ws_sprite_tag_funcs.end());
+         mod_entry_funcs.insert(wscfg.mod_function_entry_funcs.begin(),
+                                wscfg.mod_function_entry_funcs.end());

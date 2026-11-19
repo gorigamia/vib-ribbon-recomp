@@ -1,0 +1,9 @@
+format_version = 2
+
+[[package]]
+id = "psx.enhancement.internal-resolution"
+
+[[feature]]
+package_id = "psx.enhancement.internal-resolution"
+id = "internal-resolution"
+enabled = false

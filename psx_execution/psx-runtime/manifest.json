@@ -1,0 +1,11 @@
+{
+  "schema":1,
+  "profile":"REFERENCE",
+  "identity":"e87bf92eee93709f56596e962eee777460b2845d93ac644ae721140557f74aad",
+  "shared_contract_sha256":"d92994e4230be2d211cac8c5e9e258d8d022a1ba694efe4fa213c43ba9fbf1ca",
+  "implementations":[
+    {"name":"cpu-spans","contract":"generated-native-span-v1","source_sha256":"13def9523758a9c5fb8c39018ab84fb345ec9f89e9b8bac02ff3386352594d67"},
+    {"name":"mdec-media-jobs","contract":"bounded-fifo-publication-v1","source_sha256":"4c6a6b35d5d7e91a921569c14946ff8e9a9ba5186c2b35bf014654d729701b11"},
+    {"name":"snapshot-capture","contract":"reusable-raw-capture-v1","source_sha256":"35ec12fd253692ffe18b2ccd7ac260ab8792dff70454cee737c652a2f1161ec3"}
+  ]
+}

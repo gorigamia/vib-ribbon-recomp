@@ -1,0 +1,42 @@
+﻿{
+    "stage":  "Isolated code generation and object compilation; no runtime link or game execution",
+    "framework_commit":  "a7b37e079e8c6e98e04cd1cd42ba559e95911ea7",
+    "compiler":  "clang version 22.1.8 (https://github.com/llvm/llvm-project.git ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)",
+    "modules":  [
+                    {
+                        "module":  "boot",
+                        "generated_functions":  79,
+                        "compiled_objects":  3,
+                        "warnings":  [
+                                         "WARNING: interior seed 0x80012DB4 has no host function — left to the interpreter",
+                                         "WARNING: interior seed 0x8001318C has no host function — left to the interpreter",
+                                         "WARNING: interior seed 0x800131A4 has no host function — left to the interpreter",
+                                         "WARNING: interior seed 0x800131E4 has no host function — left to the interpreter"
+                                     ]
+                    },
+                    {
+                        "module":  "title",
+                        "generated_functions":  578,
+                        "compiled_objects":  12,
+                        "warnings":  [
+
+                                     ]
+                    },
+                    {
+                        "module":  "tutorial",
+                        "generated_functions":  522,
+                        "compiled_objects":  11,
+                        "warnings":  [
+
+                                     ]
+                    },
+                    {
+                        "module":  "game",
+                        "generated_functions":  924,
+                        "compiled_objects":  20,
+                        "warnings":  [
+
+                                     ]
+                    }
+                ]
+}

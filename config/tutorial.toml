@@ -1,0 +1,15 @@
+# Isolated tutorial code-generation experiment. Not a standalone game configuration.
+[game]
+name = "Vib-Ribbon tutorial"
+id = "SCES-02873"
+exe = ".local/executables/MAIN_K.EXE"
+load_address = "0x80019000"
+entry_pc = "0x800294b4"
+text_size = "0x2c800"
+
+[recompiler]
+seeds = "seeds/tutorial.txt"
+out_dir = ".local/generated/tutorial"
+bios_config = "tools/psxrecomp-src/bios/OpenBIOS.toml"
+strict = true
+discovery = "reachable"

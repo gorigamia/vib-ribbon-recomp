@@ -1,0 +1,15 @@
+# Isolated game code-generation experiment. Not a standalone game configuration.
+[game]
+name = "Vib-Ribbon game"
+id = "SCES-02873"
+exe = ".local/executables/MAIN_G.EXE"
+load_address = "0x80019000"
+entry_pc = "0x8005405c"
+text_size = "0x5d800"
+
+[recompiler]
+seeds = "seeds/game.txt"
+out_dir = ".local/generated/game"
+bios_config = "tools/psxrecomp-src/bios/OpenBIOS.toml"
+strict = true
+discovery = "reachable"
