@@ -1,36 +1,36 @@
 # vib-ribbon-recomp
 
-Experimento de recompilação estática para PC de **Vib-Ribbon** (PlayStation, PAL, `SCES-02873`) usando o [PSXRecomp](https://github.com/RetroPortingToolKit/psxrecomp). O objetivo é estudar a tradução dos módulos do jogo para C, selecioná-los com overlays AOT e ligá-los a um runtime que roda a partir do próprio disco do jogador.
+Static recompilation experiment for PC of **Vib-Ribbon** (PlayStation, PAL, `SCES-02873`) using [PSXRecomp](https://github.com/RetroPortingToolKit/psxrecomp). The goal is to study translating the game's modules to C, selecting them with AOT overlays, and linking them to a runtime that plays from the player's own disc.
 
-> Este repositório **não contém** ROM, discos, trilha sonora, texturas ou qualquer outro conteúdo protegido de Vib-Ribbon. Você precisa fornecer um dump legal do seu próprio exemplar. Os hashes em `analysis/` são apenas identificadores usados para validar esse disco localmente.
+> This repository **does not contain** ROMs, discs, soundtracks, textures, or any other protected Vib-Ribbon content. You must provide a legal dump of your own copy. The hashes in `analysis/` are only identifiers used to validate that disc locally.
 
-## Estado atual
+## Current status
 
-- A fase inicial de geração isolada produziu 79, 578, 522 e 924 entradas de dispatch para `SCES_028.73`, `MAIN_T.EXE`, `MAIN_K.EXE` e `MAIN_G.EXE` — 46 objetos compilados, sem link nem execução. Detalhes em `analysis/recomp-experiment.json`.
-- `aot/overlays.json` descreve os três módulos sobrepostos, selecionados pela verificação dos bytes residentes em vez de fundir diretamente os dispatches.
-- `psx_last_run_report.json` guarda o último relatório local conhecido: build `v0.3.4-alpha-25-gd35f13c9-dirty`, 8.877 frames, 107.016 dispatches nativos e 13 quedas para o interpretador, com 97 overlays registrados/validados. É telemetria de uma sessão encerrada pelo fechamento da janela SDL — **não** é prova de conclusão do jogo nem de paridade com o original.
-- O executável gerado localmente fica fora do Git e foi publicado como [Release `v0.1.0-experimental`](https://github.com/gorigamia/vib-ribbon-recomp/releases/tag/v0.1.0-experimental). O que está versionado aqui é o código, a configuração e a documentação.
+- The initial isolated-generation phase produced 79, 578, 522 and 924 dispatch entries for `SCES_028.73`, `MAIN_T.EXE`, `MAIN_K.EXE` and `MAIN_G.EXE` — 46 compiled objects, with no linking or execution. Details are in `analysis/recomp-experiment.json`.
+- `aot/overlays.json` describes the three overlaid modules, selected by checking resident bytes instead of merging dispatch tables directly.
+- `psx_last_run_report.json` holds the latest known local report: build `v0.3.4-alpha-25-gd35f13c9-dirty`, 8,877 frames, 107,016 native dispatches and 13 interpreter fallbacks, with 97 overlays registered/validated. It is telemetry from a session ended by closing the SDL window — **not** proof of completion or parity with the original.
+- The locally generated executable is kept out of Git and was published as [release `v0.1.0-experimental`](https://github.com/gorigamia/vib-ribbon-recomp/releases/tag/v0.1.0-experimental). What is versioned here is the code, configuration and documentation.
 
-## Estrutura
+## Layout
 
-| Caminho | Conteúdo |
+| Path | Contents |
 |---|---|
-| `game.toml` | Configuração principal: serial, execução de boot, seeds, runtime e digests do disco. |
-| `config/`, `seeds/` | Configurações e seeds isolados de título, tutorial e jogo. |
-| `aot/overlays.json` | Perfil AOT dos três executáveis sobrepostos. |
-| `analysis/` | Inventário do disco, dos executáveis e dos relatórios de engenharia reversa. |
-| `tools/` | Scripts de análise, geração de código, checagem e build do runtime. |
-| `bios/openbios.bin` | BIOS livre do PCSX-Redux usada pelo runtime; licença em `bios/OpenBIOS.LICENSE`. |
-| `patches/` | Ajustes aplicados ao checkout local do PSXRecomp. |
-| `mods/` | Manifests de enhancement de exemplo. |
-| `psx_last_run_report.json`, `VibRibbon_Recompiled.execution.json` | Evidências de execução/telemetria local. |
+| `game.toml` | Main configuration: serial, boot executable, seeds, runtime and disc digests. |
+| `config/`, `seeds/` | Isolated title, tutorial and game configurations and seeds. |
+| `aot/overlays.json` | AOT profile of the three overlaid executables. |
+| `analysis/` | Disc and executable inventory, plus reverse-engineering reports. |
+| `tools/` | Scripts for analysis, code generation, checks and runtime build. |
+| `bios/openbios.bin` | Free PCSX-Redux BIOS used by the runtime; license in `bios/OpenBIOS.LICENSE`. |
+| `patches/` | Adjustments applied to the local PSXRecomp checkout. |
+| `mods/` | Example enhancement manifests. |
+| `psx_last_run_report.json`, `VibRibbon_Recompiled.execution.json` | Local execution/telemetry evidence. |
 
-## Como reproduzir (Windows)
+## How to reproduce (Windows)
 
-1. Instale CMake 3.24+, Ninja, Clang/Clang++ 22.x (testado com 22.1.8), Python 3.11+, Node.js e Git. Os scripts esperam o Ninja em `.local/build-tools/bin/ninja.exe`.
-2. Clone o PSXRecomp em `tools/psxrecomp-src`, na revisão `a7b37e079e8c6e98e04cd1cd42ba559e95911ea7`. O checkout é ignorado pelo Git.
-3. Com o seu dump legal, coloque o CUE/BIN em `disc/` e extraia `SCES_028.73`, `MAIN_T.EXE`, `MAIN_K.EXE` e `MAIN_G.EXE` em `.local/executables/`. Ajuste `game.toml` se o nome do CUE for diferente.
-4. Execute, na raiz do repositório:
+1. Install CMake 3.24+, Ninja, Clang/Clang++ 22.x (tested with 22.1.8), Python 3.11+, Node.js and Git. The scripts expect Ninja at `.local/build-tools/bin/ninja.exe`.
+2. Clone PSXRecomp into `tools/psxrecomp-src` at revision `a7b37e079e8c6e98e04cd1cd42ba559e95911ea7`. The checkout is ignored by Git.
+3. Using your legal dump, put the CUE/BIN in `disc/` and extract `SCES_028.73`, `MAIN_T.EXE`, `MAIN_K.EXE` and `MAIN_G.EXE` into `.local/executables/`. Adjust `game.toml` if the CUE name differs.
+4. From the repository root, run:
 
 ```powershell
 pwsh tools/build-analyzer.ps1
@@ -39,20 +39,20 @@ py -3 tools/prepare-recomp.py
 pwsh tools/build-recompiler.ps1
 pwsh tools/generate-recomp.ps1
 pwsh tools/check-recomp.ps1
-pwsh tools/build-runtime.ps1 -Python <caminho\para\python.exe>
+pwsh tools/build-runtime.ps1 -Python <path\to\python.exe>
 ```
 
-O runtime resultante lê `game.toml` e exige o disco configurado. Saídas intermediárias ficam em `.local/`, ignorado pelo Git.
+The resulting runtime reads `game.toml` and requires the configured disc. Intermediate outputs stay in `.local/`, ignored by Git.
 
-## Limitações conhecidas
+## Known limitations
 
-- O suporte a MP3/streaming de áudio ainda não foi implementado neste experimento.
-- Quatro seeds internos do carregador não têm função hospedeira e caem no interpretador.
-- A compilação dos objetos não estabelece equivalência semântica; não há suíte de paridade com o jogo original.
-- O fluxo foi validado apenas em Windows com a toolchain descrita acima.
+- MP3/audio streaming support is not implemented in this experiment.
+- Four internal loader seeds have no host function and fall back to the interpreter.
+- Compiling objects does not establish semantic equivalence; there is no parity suite against the original game.
+- The flow was validated only on Windows with the toolchain described above.
 
-## Licença e créditos
+## License and credits
 
-O código e a configuração deste repositório são MIT — veja `LICENSE`. Componentes de terceiros e avisos de direitos autorais estão em `THIRD_PARTY_NOTICES.md`. Vib-Ribbon pertence aos seus respectivos detentores; este projeto não é afiliado a eles.
+The code and configuration in this repository are MIT — see `LICENSE`. Third-party components and copyright notices are in `THIRD_PARTY_NOTICES.md`. Vib-Ribbon belongs to its respective rights holders; this project is not affiliated with them.
 
-Leitura complementar: `analysis/ESTUDO.md` (estudo estático inicial) e `analysis/RECOMPILACAO.md` (primeiro experimento com o framework). O mecanismo de AOT usado está documentado em [AOT_SHARDING.md](https://github.com/RetroPortingToolKit/psxrecomp/blob/master/docs/AOT_SHARDING.md).
+Further reading: `analysis/ESTUDO.md` (initial static study) and `analysis/RECOMPILACAO.md` (first experiment with the framework). The AOT mechanism is documented in [AOT_SHARDING.md](https://github.com/RetroPortingToolKit/psxrecomp/blob/master/docs/AOT_SHARDING.md). The two report filenames are kept in their original form so existing links stay valid.

@@ -1,105 +1,105 @@
-# Estudo da recompilação do Vib-Ribbon para PC
+# Vib-Ribbon PC Recompilation Study
 
-Data: 1 de novembro de 2026. Disco europeu SCES_028.73.
+Date: November 1, 2026. European disc SCES_028.73.
 
-> Documento histórico da primeira fase. O estado atual do experimento está no [README](../README.md) e em `RECOMPILACAO.md`.
+> Historical document from the first phase. The current status of the experiment is in the [README](../README.md) and in `RECOMPILACAO.md`. The original filename is kept for link stability.
 
-## Resultado e limites
+## Result and limits
 
-Os quatro executáveis foram extraídos e analisados estaticamente. Os 13 PAKs foram extraídos com validação de limites: 1.707 entradas, incluindo cópias por idioma. Os leitores de recursos interpretam a geometria TMD e as tabelas do script de fases.
+The four executables were extracted and analyzed statically. The 13 PAKs were extracted with bounds validation: 1,707 entries, including per-language copies. The resource readers interpret TMD geometry and stage script tables.
 
-Compilamos e executamos o **analisador** do PSXRecomp. Não compilamos o jogo ou seu runtime, não executamos cenas e ainda não existe build PC jogável. Esta etapa entrega evidências e ferramentas para orientar esse experimento.
+We built and ran the PSXRecomp **analyzer**. We did not build the game or its runtime, did not run any scenes, and no playable PC build existed yet. This stage delivers evidence and tools to guide the experiment.
 
-## Módulos do jogo
+## Game modules
 
-| Executável | Papel | Carga na RAM | Entrada | GP configurado no código |
+| Executable | Role | RAM load | Entry point | GP set in code |
 |---|---|---|---|---|
-| SCES_028.73 | Carregador | 0x80010000 | 0x80011F2C | 0x800167CC |
-| MAIN_T.EXE | Título e idioma | 0x80019000 | 0x8002BF78 | 0x80047EB8 |
+| SCES_028.73 | Loader | 0x80010000 | 0x80011F2C | 0x800167CC |
+| MAIN_T.EXE | Title and language | 0x80019000 | 0x8002BF78 | 0x80047EB8 |
 | MAIN_K.EXE | Tutorial | 0x80019000 | 0x800294B4 | 0x80045418 |
-| MAIN_G.EXE | Menus e partida | 0x80019000 | 0x8005405C | 0x80075E24 |
+| MAIN_G.EXE | Menus and gameplay | 0x80019000 | 0x8005405C | 0x80075E24 |
 
-Endereços confirmados nos cabeçalhos e instruções locais; papéis corroborados pela [documentação do Open Ribbon](https://github.com/open-ribbon/documentation/blob/main/docs/decompilation/general-info.md).
+Addresses were confirmed from headers and local instructions; roles are corroborated by the [Open Ribbon documentation](https://github.com/open-ribbon/documentation/blob/main/docs/decompilation/general-info.md).
 
-Os três módulos maiores ocupam a mesma base de RAM. Precisamos identificar qual módulo está residente para escolher a função recompilada correta. O GP inicial do cabeçalho é zero, mas cada módulo o redefine no código; considerar apenas o cabeçalho prejudicaria a interpretação de variáveis globais.
+The three larger modules share the same RAM base. We need to identify which module is resident in order to choose the correct recompiled function. The header's initial GP is zero, but each module redefines it in code; relying only on the header would break interpretation of global variables.
 
-O SHA-1 do MAIN_T local é `7eb79e31da2c7456a1ece52835948b75979ce65a`, exatamente o publicado no arquivo `sces028.sha` do [Open Ribbon](https://github.com/open-ribbon/open-ribbon). Os símbolos públicos da tela inicial podem ajudar com uma correspondência binária concreta. Eles não devem ser aplicados por endereço aos outros módulos.
+The SHA-1 of the local MAIN_T is `7eb79e31da2c7456a1ece52835948b75979ce65a`, exactly the one published in `sces028.sha` from [Open Ribbon](https://github.com/open-ribbon/open-ribbon). Public symbols for the title screen can help with a concrete binary match. They must not be applied by address to the other modules.
 
-## Gráficos
+## Graphics
 
-O pacote inglês GAME contém 31 modelos TMD. Foram verificados os limites de tabelas e primitivas e todos os índices das linhas decodificadas. Nesse conjunto há 6.489 primitivas de modo 0x40 e 19 de modo 0x21. A ferramenta decodifica a geometria das linhas 0x40; ainda não interpreta as primitivas 0x21.
+The English GAME package contains 31 TMD models. Table and primitive bounds and all decoded line indices were checked. This set contains 6,489 mode-0x40 primitives and 19 mode-0x21 primitives. The tool decodes 0x40 line geometry; it does not yet interpret 0x21 primitives.
 
-| Recurso | Objetos | Vértices | Primitivas |
+| Resource | Objects | Vertices | Primitives |
 |---|---:|---:|---:|
 | CHARA/PEELOO/MODEL.TMD | 16 | 156 | 176 |
 | CHARA/FROG/MODEL.TMD | 14 | 148 | 159 |
 | ROAD/ROAD.TMD | 10 | 103 | 93 |
 | FONT/FE_FONT.TMD | 113 | 690 | 511 |
 
-A prévia `.local/road-geometry.png` foi desenhada dos vértices e índices originais de ROAD/ROAD.TMD, que está no plano Y/Z. Usa projeção ortográfica e escala independente por objeto: demonstra a leitura dos obstáculos, não a reprodução da câmera, animações ou rasterização do jogo.
+The `.local/road-geometry.png` preview was drawn from the original vertices and indices of ROAD/ROAD.TMD, which lies in the Y/Z plane. It uses orthographic projection and independent scale per object: it demonstrates obstacle reading, not reproduction of the game's camera, animations or rasterization.
 
-O visual simples ajuda, mas o jogo usa modelos e transformações. Os ANM animam objetos e os ANC animam a câmera. Para o primeiro boot, a recomendação é conservar os comandos de GPU/GTE pelo runtime; um renderizador próprio pode ser estudado depois de existir uma referência funcional. Referências: [TMD do Open Ribbon](https://github.com/open-ribbon/documentation/blob/main/docs/file-types/tmd.md), [GPU do PS1](https://psx-spx.consoledev.net/graphicsprocessingunitgpu/).
+The simple visual helps, but the game uses models and transforms. ANMs animate objects and ANCs animate the camera. For the first boot, the recommendation is to keep GPU/GTE commands in the runtime; a custom renderer can be studied later once a working reference exists. References: [Open Ribbon TMD](https://github.com/open-ribbon/documentation/blob/main/docs/file-types/tmd.md), [PS1 GPU](https://psx-spx.consoledev.net/graphicsprocessingunitgpu/).
 
-## Pacotes
+## Packages
 
-Há seis PAKs GAME com 242 entradas cada, seis KIOSK com 36 cada e um TITLE com 39. São dados sem compressão no nível do arquivo PAK. A estrutura é contagem, tabela de offsets, nome terminado em zero e alinhado a quatro bytes, tamanho e conteúdo. O extrator verifica comprimentos, offsets e caminhos antes de escrever em `.local/resources`.
+There are six GAME PAKs with 242 entries each, six KIOSK PAKs with 36 each, and one TITLE PAK with 39. The data is uncompressed at the PAK file level. The structure is a count, an offset table, a zero-terminated name aligned to four bytes, a size and the contents. The extractor validates lengths, offsets and paths before writing to `.local/resources`.
 
-Os prefixos documentados 01/02/04/08/10/20 correspondem a japonês/inglês/alemão/espanhol/francês/italiano; não são seis fases diferentes. [Documentação de PAK](https://github.com/open-ribbon/documentation/blob/main/docs/file-types/pak.md).
+The documented prefixes 01/02/04/08/10/20 correspond to Japanese/English/German/Spanish/French/Italian; they are not six different stages. [PAK documentation](https://github.com/open-ribbon/documentation/blob/main/docs/file-types/pak.md).
 
-## Geração de obstáculos
+## Obstacle generation
 
-O SCRIPT/SYSTEM3.FSL local tem 26.920 bytes e o mesmo SHA-256 nos seis pacotes GAME. O leitor percorreu o arquivo até seu último byte, validando índices e ordenação de segmentos.
+The local SCRIPT/SYSTEM3.FSL is 26,920 bytes and has the same SHA-256 in all six GAME packages. The reader walked the file to its last byte, validating indices and segment ordering.
 
-| Estrutura | Quantidade / início |
+| Structure | Count / start |
 |---|---|
-| Padrões fixos | 11 / 0x40 |
-| Distribuições | 63 / 0xEC |
-| Tabelas de controle | 7 / 0xDB8 |
-| Tabelas de padrões | 7 / 0x56CC |
-| Tabelas de eventos | 7 / 0x5EC8 |
-| Índices de faixas | 7 / 0x68D4 |
+| Fixed patterns | 11 / 0x40 |
+| Distributions | 63 / 0xEC |
+| Control tables | 7 / 0xDB8 |
+| Pattern tables | 7 / 0x56CC |
+| Event tables | 7 / 0x5EC8 |
+| Track indices | 7 / 0x68D4 |
 
-O sétimo conjunto contém 774 segmentos de controle, 90 de padrões e 82 de eventos. A [pesquisa de FSL do Open Ribbon](https://github.com/open-ribbon/documentation/blob/main/docs/file-types/fsl.md) identifica esse conjunto como a base de CDs personalizados e descreve a escolha de posições iniciais nele.
+The seventh set contains 774 control segments, 90 pattern segments and 82 event segments. [Open Ribbon's FSL research](https://github.com/open-ribbon/documentation/blob/main/docs/file-types/fsl.md) identifies this set as the basis for custom CDs and describes how starting positions are chosen in it.
 
-Isso corrige uma hipótese anterior: **não está demonstrado que o jogo converta cada batida diretamente em obstáculos**. Já confirmamos a existência de padrões e scripts. Ainda precisamos rastrear a influência do áudio na seleção, no tempo e nas pausas. Preservar o algoritmo exige entender essa combinação.
+This corrects an earlier hypothesis: **it is not demonstrated that the game converts each beat directly into obstacles**. The existence of patterns and scripts is confirmed. We still need to trace how audio influences selection, timing and pauses. Preserving the algorithm requires understanding that combination.
 
-Encontramos uma divergência na documentação comunitária: o primeiro campo das distribuições não funciona como uma contagem simples. Os bytes locais incluem vários valores diferentes de 1. Nosso leitor preserva esse campo como opaco e usa registros de 52 bytes, alcançando todos os offsets esperados e o fim exato do arquivo. A semântica desses bits continua desconhecida.
+We found a discrepancy in community documentation: the first field of distributions does not work as a simple count. The local bytes include several values other than 1. Our reader keeps that field opaque and uses 52-byte records, reaching all expected offsets and the exact end of the file. The meaning of those bits remains unknown.
 
-Âncoras de código obtidas por referências a strings no MAIN_G:
+Code anchors obtained from string references in MAIN_G:
 
-- AnalysisScript.cpp: candidatos 0x80042A54 e 0x80042D48.
-- SceneDraw.cpp: candidato 0x8004CA5C.
-- BufferTrackEnd(): bad state: candidato 0x8004FD8C.
-- CdSys.cpp: referências na região 0x80023D3C–0x80024130.
+- AnalysisScript.cpp: candidates 0x80042A54 and 0x80042D48.
+- SceneDraw.cpp: candidate 0x8004CA5C.
+- BufferTrackEnd(): bad state: candidate 0x8004FD8C.
+- CdSys.cpp: references in the 0x80023D3C–0x80024130 region.
 
-Os nomes indicam vizinhanças de código; os limites das funções ainda são hipóteses do analisador. Ele encontrou 1.355 candidatos a função no MAIN_G e deixou 278 transferências indiretas sem alvos provados. São números de descoberta estática, não porcentagem de port concluído.
+The names indicate code neighborhoods; function boundaries are still analyzer hypotheses. It found 1,355 function candidates in MAIN_G and left 278 indirect jumps without proven targets. These are static discovery counts, not a percentage of a completed port.
 
-## Música original e entrada somente MP3
+## Original music and MP3-only input
 
-O CUE contém uma faixa de dados e sete faixas de áudio. É necessário preservar o mapa completo, números de faixa e pregaps. Montar apenas o Track 1 perderia informações necessárias à reprodução original.
+The CUE contains one data track and seven audio tracks. The complete map, track numbers and pregaps must be preserved. Building only Track 1 would lose information needed for original playback.
 
-O código do runtime PSXRecomp inspecionado já implementa CD-DA, consultas de faixa e relatórios de posição/pico. É uma base para teste, sem comprovação de compatibilidade com este jogo. Revisão e referências locais estão em static-europe.json.
+The PSXRecomp runtime code inspected already implements CD-DA, track queries and position/peak reports. It is a test base, without proven compatibility with this game. Review notes and local references are in `static-europe.json`.
 
-Proposta, ainda não implementada:
+Proposed, not yet implemented:
 
-1. Conservar o disco original durante boot e modo original.
-2. Na troca para música externa, disponibilizar um disco de áudio virtual alimentado pelo MP3 selecionado.
-3. Decodificar para PCM estéreo de 16 bits a 44.100 Hz. Se o código solicitar setores, oferecer 2.352 bytes por setor: 588 frames estéreo, 75 setores por segundo.
-4. Entregar reprodução, análise, duração e posição na mesma linha do tempo. Preservar a leitura que o jogo realmente utiliza, inclusive relatórios ou buffers quando necessários.
-5. Tratar atraso/padding do encoder MP3; evitar normalização automática antes de compreender a participação da amplitude.
+1. Keep the original disc during boot and in original mode.
+2. When switching to external music, provide a virtual audio disc fed by the selected MP3.
+3. Decode to 16-bit stereo PCM at 44.1 kHz. If the code requests sectors, provide 2,352 bytes per sector: 588 stereo frames, 75 sectors per second.
+4. Expose playback, analysis, duration and position on the same timeline. Preserve whatever reads the game actually uses, including reports or buffers when needed.
+5. Handle MP3 encoder delay/padding; avoid automatic normalization before understanding how amplitude contributes.
 
-Ainda precisamos descobrir se o algoritmo observa PCM do disco, relatórios do controlador, buffers SPU, metadados ou uma combinação. A interface de arquivos aceitará somente MP3, como solicitado.
+We still need to find out whether the algorithm observes disc PCM, controller reports, SPU buffers, metadata or a combination. The file interface will accept MP3 only, as requested.
 
-## Caminho para a prova de conceito
+## Path to proof of concept
 
-Recomendação: testar o [PSXRecomp](https://github.com/RetroPortingToolKit/psxrecomp), usando o Open Ribbon como referência de símbolos e formatos. O framework possui runtime e suporte a overlays; seu analisador já funciona neste computador. Há fallback de interpretação no framework: um build gerado não demonstra, por si só, que todo o código está recompilado.
+Recommendation: try [PSXRecomp](https://github.com/RetroPortingToolKit/psxrecomp), using Open Ribbon as a reference for symbols and formats. The framework has a runtime and overlay support; its analyzer already works on this machine. The framework has interpreter fallback, so a generated build alone does not prove that all code was recompiled.
 
-Próximos critérios de sucesso, ainda pendentes:
+Remaining success criteria:
 
-1. Gerar C para os quatro módulos, revisar as transições e compilar a aplicação com runtime e CUE completo.
-2. Demonstrar boot → título → menu → tutorial/primeira música original, preservando inicialmente a temporização PAL.
-3. Comparar gráficos, controles e áudio com uma execução de referência.
-4. Rastrear comandos de CD, buffers de áudio e candidatos de AnalysisScript durante música externa conhecida.
-5. Integrar MP3 e comparar a mesma música via CD e arquivo, controlando metadados de faixa.
+1. Generate C for the four modules, review transitions and build the application with the runtime and the full CUE.
+2. Demonstrate boot → title → menu → tutorial/first original song, initially preserving PAL timing.
+3. Compare graphics, controls and audio with a reference run.
+4. Trace CD commands, audio buffers and AnalysisScript candidates during known external music.
+5. Integrate MP3 and compare the same song via disc and file, controlling track metadata.
 
-Os arquivos originais foram somente lidos. Executáveis, recursos e disassemblies ficam em .local, ignorado pelo Git. Os relatórios versionáveis contêm metadados e resultados da investigação.
+The original files were only read. Executables, resources and disassemblies live in `.local`, ignored by Git. The versioned reports contain metadata and investigation results.
