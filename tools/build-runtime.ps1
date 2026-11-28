@@ -1,4 +1,4 @@
-param([Parameter(Mandatory=$true)][string]$Python)
+param([Parameter(Mandatory=$true)][string]$Python, [switch]$Publish)
 $ErrorActionPreference = 'Stop'
 Set-Location (Split-Path $PSScriptRoot -Parent)
 & $Python -c 'import sys; assert sys.version_info >= (3, 11), "Python 3.11+ is required"'
@@ -26,3 +26,18 @@ cmake -S . -B .local/runtime-build -G Ninja "-DCMAKE_MAKE_PROGRAM=$ninja" `
 if ($LASTEXITCODE -ne 0) { throw 'Runtime configuration failed' }
 cmake --build .local/runtime-build --target psx-runtime --parallel 2
 if ($LASTEXITCODE -ne 0) { throw 'Runtime build failed' }
+foreach ($name in @('gamecontrollerdb.txt', 'vib_settings.ini')) {
+    $target = Join-Path '.local/runtime-build' $name
+    if (-not (Test-Path -LiteralPath $target)) { Copy-Item -LiteralPath $name -Destination $target }
+}
+
+if ($Publish) {
+    $backupDir = Join-Path '.local/backups' ('build-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
+    New-Item -ItemType Directory -Path $backupDir -Force | Out-Null
+    foreach ($name in @('VibRibbon_Recompiled.exe', 'VibRibbon_Recompiled.execution.json')) {
+        if (Test-Path -LiteralPath $name) { Copy-Item -LiteralPath $name -Destination $backupDir }
+    }
+    Copy-Item -LiteralPath '.local/runtime-build/VibRibbonPC.exe' -Destination 'VibRibbon_Recompiled.exe' -Force
+    Copy-Item -LiteralPath '.local/runtime-build/VibRibbonPC.execution.json' -Destination 'VibRibbon_Recompiled.execution.json' -Force
+    Write-Host "Executavel atualizado; versao anterior em $backupDir"
+}

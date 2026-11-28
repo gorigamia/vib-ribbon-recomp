@@ -38,7 +38,8 @@ strict = true
 window_title = "VibRibbon Recompiled"
 memcard_dir = "saves"
 bios_hle = false
-hle_scheduler = false
+# Deterministic thread switching is required by the title-to-game transition.
+hle_scheduler = true
 overlay_cache = true
 overlay_backend = "gcc"
 

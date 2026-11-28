@@ -1,0 +1,181 @@
+diff --git a/runtime/include/mod_runtime.h b/runtime/include/mod_runtime.h
+index aec6fd7..f14b4dd 100644
+--- a/runtime/include/mod_runtime.h
++++ b/runtime/include/mod_runtime.h
+@@ -166,6 +166,8 @@ uint32_t mod_runtime_cdda_track_start(int track); /* zero = lead-out */
+ /* 0 unavailable, 1 copied external PCM, 2 mapped to mounted-disc LBA. */
+ int mod_runtime_read_cdda_sector(uint32_t lba, uint8_t* bytes, uint32_t size,
+                                  uint32_t* source_lba);
++int vib_set_cdda_playlist(const uint8_t** pcm_sectors, const uint32_t* sector_counts,
++                          uint32_t track_count);
+ 
+ #ifdef __cplusplus
+ }
+diff --git a/runtime/include/psx_host_menu.h b/runtime/include/psx_host_menu.h
+index e78f1cd..509c9e1 100644
+--- a/runtime/include/psx_host_menu.h
++++ b/runtime/include/psx_host_menu.h
+@@ -4,7 +4,9 @@
+ #ifdef __cplusplus
+ extern "C" {
+ #endif
++typedef int (*PsxHostMenuImageFn)(const uint32_t **pixels, int *w, int *h);
+ int psx_host_menu_overlay_image(const uint32_t **pixels, int *w, int *h);
++int psx_host_menu_set_image_provider(PsxHostMenuImageFn fn);
+ #ifdef __cplusplus
+ }
+ #endif
+diff --git a/runtime/src/main.cpp b/runtime/src/main.cpp
+index 886c0db..75b6315 100644
+--- a/runtime/src/main.cpp
++++ b/runtime/src/main.cpp
+@@ -6113,10 +6113,13 @@ static void axes_to_pad_pair(int16_t vx, int16_t vy, uint8_t* obx, uint8_t* oby,
+  * 1..5 — selects which keybinds.ini section drives a keyboard port. */
+ static uint16_t pad_buttons_for(const PlayerInput& p, int player, bool suppress_stick_axes) {
+     if (p.kind == 1) return pad_from_keyboard(player);
+-    if (p.kind == 2)
+-        return controller_pad_buttons(controller_map_for(p), p.handle,
+-                                      suppress_stick_axes, p.deadzone,
+-                                      player == 1 ? g_p1_claimed_buttons : 0u);
++    if (p.kind == 2) {
++        if (p.handle)
++            return controller_pad_buttons(controller_map_for(p), p.handle,
++                                          suppress_stick_axes, p.deadzone,
++                                          player == 1 ? g_p1_claimed_buttons : 0u);
++        return pad_from_keyboard(player);
++    }
+     return 0xFFFF;
+ }
+ 
+@@ -6148,6 +6151,11 @@ static void pad_sticks_for(const PlayerInput& p, int player, uint8_t out[4]) {
+         psx_keybinds_sticks(keys, player, out);
+         return;
+     }
++    if (p.kind == 2 && !p.handle) {
++        const Uint8* keys = SDL_GetKeyboardState(NULL);
++        psx_keybinds_sticks(keys, player, out);
++        return;
++    }
+     if (p.kind == 2 && p.handle) {
+         const ControllerMap& map = controller_map_for(p);
+         auto find_entry = [&](const char* name) -> const PsxButtonMap* {
+@@ -17390,6 +17398,19 @@ static void host_pause_service(void) {
+     if (g_ovl_reload_binds.exchange(0)) {
+         psx_keybinds_init(g_ovl_argv0.c_str());
+         load_input_config(g_ovl_argv0.c_str());
++        std::ifstream vib_ini(exe_dir_from_argv(g_ovl_argv0.c_str()) / "vib_settings.ini");
++        std::string line;
++        while (std::getline(vib_ini, line)) {
++            const size_t eq = line.find('=');
++            if (eq == std::string::npos || trim_copy(line.substr(0, eq)) != "controller") continue;
++            const std::string device = trim_copy(line.substr(eq + 1));
++            if (device.empty()) continue;
++            close_controller();
++            set_player_device(g_players[0], device, g_players[0].mode);
++            g_players[0].preferred_instance = -1;
++            refresh_player_devices();
++            break;
++        }
+     }
+ #if defined(RECOMP_LAUNCHER) && defined(PSX_HAS_RECOMP_NET) && defined(PSX_HAS_LOBBY_CLIENT)
+     /* The frontend loop is not running during a game: pump the lobby here,
+@@ -17512,7 +17533,6 @@ int main(int argc, char** argv) {
+         std::fprintf(stdout, "mod plugin audit: %s\n", ok ? "PASS" : "FAIL");
+         return ok ? 0 : 1;
+     }
+-
+     /* Setup-host zip-root exe: after Generate & rebuild, hand off to the
+      * product binary under build-release/ (bios/, mods/, assets/, settings). */
+ #if defined(PSX_HAS_CODEGEN_SETUP_HOST)
+@@ -17768,7 +17788,7 @@ int main(int argc, char** argv) {
+ #if defined(PSX_DEBUG_TOOLS)
+         player_device[i] = (i == 0) ? "auto" : "none";
+ #else
+-        player_device[i] = (i == 0) ? "keyboard" : "none";
++        player_device[i] = (i == 0) ? "auto" : "none";
+ #endif
+         player_mode[i] = PSXRecompV4::PAD_MODE_ANALOG;
+         player_deadzone[i] = kDefaultDeadzoneRaw;
+@@ -18701,6 +18721,17 @@ int main(int argc, char** argv) {
+             }
+             if (us.has_deadzone) resolved_deadzone = us.deadzone;
+         }
++        {
++            std::ifstream vib_ini(exe_dir_from_argv(argv[0]) / "vib_settings.ini");
++            std::string line;
++            while (std::getline(vib_ini, line)) {
++                const size_t eq = line.find('=');
++                if (eq == std::string::npos) continue;
++                if (trim_copy(line.substr(0, eq)) != "controller") continue;
++                const std::string value = trim_copy(line.substr(eq + 1));
++                if (!value.empty()) player_device[0] = value;
++            }
++        }
+         apply_offline_pad_count(game_players, multitap_enabled);
+         if (us.has_low_latency_input) g_low_latency_input = us.low_latency_input ? 1 : 0;
+         if (us.has_render_thread)     g_render_thread     = us.render_thread ? 1 : 0;
+@@ -20983,6 +21014,15 @@ session_reboot:
+             return 1;
+         }
+     }
++    {
++        const std::filesystem::path db =
++            exe_dir_from_argv(argv[0]) / "gamecontrollerdb.txt";
++        std::error_code db_ec;
++        if (std::filesystem::exists(db, db_ec)) {
++            const int mappings = SDL_AddGamepadMappingsFromFile(db.string().c_str());
++            std::fprintf(stdout, "psxrecomp: %d controle(s) mapeado(s) em gamecontrollerdb.txt\n", mappings);
++        }
++    }
+     load_input_config(argv[0]);
+     /* The launcher / settings.toml / game.toml deadzone (when set) is the
+      * user-facing authority; apply it over the input.ini value here, after
+diff --git a/runtime/src/mod_runtime.cpp b/runtime/src/mod_runtime.cpp
+index c209525..337097a 100644
+--- a/runtime/src/mod_runtime.cpp
++++ b/runtime/src/mod_runtime.cpp
+@@ -3027,6 +3027,20 @@ extern "C" int mod_runtime_read_cdda_sector(uint32_t lba, uint8_t* bytes,
+     }
+     return 0;
+ }
++extern "C" int vib_set_cdda_playlist(const uint8_t** sectors, const uint32_t* counts,
++                                     uint32_t track_count) {
++    auto& s=PSXRecompV4::state();
++    s.audio_tracks.clear();
++    if(!sectors || !counts || !track_count || track_count>98) return 0;
++    uint32_t lba=150;
++    for(uint32_t i=0;i<track_count;i++) {
++        if(!sectors[i] || !counts[i]) { s.audio_tracks.clear(); return 0; }
++        s.audio_tracks.push_back({lba,counts[i],0,sectors[i]});
++        lba+=counts[i];
++    }
++    s.disc_enabled=true;
++    return (int)track_count;
++}
+ extern "C" uint32_t mod_runtime_disc_sector_count(uint32_t base_count) {
+     const auto& s=PSXRecompV4::state();
+     return mod_runtime_disc_extent_start() ?
+diff --git a/runtime/src/psx_host_menu.c b/runtime/src/psx_host_menu.c
+index 6f38590..408d4df 100644
+--- a/runtime/src/psx_host_menu.c
++++ b/runtime/src/psx_host_menu.c
+@@ -1,7 +1,19 @@
+ #include "psx_host_menu.h"
+ #include "psx_runtime_menu.h"
+ #include "psx_savestate_menu.h"
++
++#include <stdatomic.h>
++
++static _Atomic(PsxHostMenuImageFn) s_image_provider = NULL;
++
++int psx_host_menu_set_image_provider(PsxHostMenuImageFn fn) {
++    atomic_store_explicit(&s_image_provider, fn, memory_order_release);
++    return 1;
++}
++
+ int psx_host_menu_overlay_image(const uint32_t **pixels, int *w, int *h) {
++    PsxHostMenuImageFn fn = atomic_load_explicit(&s_image_provider, memory_order_acquire);
++    if (fn && fn(pixels, w, h)) return 1;
+     if (psx_runtime_menu_overlay_image(pixels, w, h)) return 1;
+     return psx_savestate_menu_overlay_image(pixels, w, h);
+ }

@@ -17,10 +17,12 @@ include("${PSXRECOMP_ROOT}/runtime/runtime.cmake")
 psxrecomp_add_game_runtime(psx-runtime
     WINDOW_TITLE "Vib-Ribbon PC - runtime experiment"
     EXE_NAME "VibRibbonPC"
-    DEFAULT_GAME_CONFIG_PATH "${CMAKE_CURRENT_SOURCE_DIR}/game.toml"
+    DEFAULT_GAME_CONFIG_PATH "game.toml"
     PRELOADED_MODS_DIR "NONE"
+    EXTRAS_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/vib_settings.cpp"
     MAX_PLAYERS 1
     GAME_OVERLAY_STATIC_C "${CMAKE_CURRENT_SOURCE_DIR}/.local/generated/overlays/overlays_static.c"
     GEN_MARKER ".local/generated/boot/SCES_028.73_dispatch.c"
     GEN_FULL_GLOB ".local/generated/boot/SCES_028.73_full_*.c"
 )
+target_include_directories(psx-runtime PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/third_party")

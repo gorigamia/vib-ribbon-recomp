@@ -27,6 +27,21 @@ This file covers components referenced or used by the experiment. The MIT licens
 - The original game, its music, art, trademarks and executables belong to their respective rights holders. None of that content is redistributed in this repository.
 - The digests in `game.toml` and `analysis/` identify the PAL disc `SCES-02873` and exist only to validate a user-owned dump locally.
 
+## SDL game controller mappings
+
+- Redistributed file: `gamecontrollerdb.txt`.
+- Source: https://github.com/mdqinc/SDL_GameControllerDB
+- zlib license, copyright (c) 2018-2026 SDL Game Controller DB contributors.
+
+## dr_mp3
+
+- Source: https://github.com/mackron/dr_libs (single-file `dr_mp3.h` in `third_party/`).
+- Public domain / MIT-0, copyright (c) 2023 David Reid.
+
+## In-game overlay font
+
+- The F1/MP3 overlay uses a small built-in ASCII bitmap font assembled from conventional public-domain 5x7 glyph patterns; no font file is redistributed.
+
 ## Build dependencies
 
 Clang/LLVM, CMake, Ninja, SDL3, libchdr, libjuice, stb_image, xxhash, json11 and the other libraries obtained through the PSXRecomp checkout remain under their own licenses and are not incorporated into this repository. The resulting executable must be accompanied by the applicable notices when distributed.
